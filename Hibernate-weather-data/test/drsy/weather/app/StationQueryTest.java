@@ -157,6 +157,30 @@ public class StationQueryTest {
 	}
 	
 	@Test
+	public void stationsRange() {
+		testQuery ppl = new testQuery();
+		float lat1 = 43;
+		float lat2 = 45;
+		float lon1 = -93;
+		float lon2 = -83;
+		List<Station> d = ppl.getStationsbetweenlatnlon(lat1, lat2, lon1, lon2);
+		System.out.println("Number of stations between Latitudes(" + lat1 + ", " + lat2 + ") & Longitudes: (" + lon1 + ", " + lon2 + ") are: " + d.size());
+		for(Station  l : d) {
+			int count = 0;
+			float temp = 0, avg = 0;
+			Collection<Wdata> o = l.getWdatas();
+			Iterator<Wdata> itr = o.iterator();
+			while(itr.hasNext()) {
+				Wdata u = itr.next();
+				temp += u.getTmpf();
+				count++;
+			}
+			avg = temp/count;
+			System.out.println("----> AVERAGE TEMPERATURE:  " + avg + " AT STATION: " + l.getName());
+		}
+	}
+	
+	@Test
 	public void testStationdatathroughdate() {
 		testQuery ppl = new testQuery();
 		int date = 20121005;

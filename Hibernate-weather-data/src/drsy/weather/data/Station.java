@@ -55,11 +55,15 @@ public class Station {
 		wdatas.add(c);
 	}
 
+	@Column(nullable = true)
 	float latitude;
+	@Column(nullable = true)
 	float longitude;
+	@Column(nullable = true)
 	float elevation;
 	@ForeignKey(name = "network")
 	int network;
+	@Column(nullable = true)
 	String status;
 	public String getId() {
 		return id;

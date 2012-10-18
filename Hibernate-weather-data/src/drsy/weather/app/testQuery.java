@@ -238,6 +238,28 @@ public class testQuery {
 		return r;
 	}
 	
+	public List<Station> getStationsbetweenlatnlon(float lat1, float lat2, float lon1, float lon2) {
+		ArrayList<Station> r = null;
+
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+
+			// since the data is being detached we must fetch eagerly
+			Criteria c = session.createCriteria(Station.class);
+			c.setFetchMode("wdata", FetchMode.JOIN);
+			c.add(Restrictions.between("latitude", lat1, lat2));
+			c.add(Restrictions.between("longitude", lon1, lon2));
+			Set<Station> set = new LinkedHashSet<Station>(c.list());
+			r = new ArrayList<Station>(set);
+			session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return r;
+	}
+	
 	public List<Station> getStationsonDate(int date) {
 		ArrayList<Station> r = null;
 
@@ -252,6 +274,7 @@ public class testQuery {
 			String sql1 = "wdatas2_.tmpf > -99";
 			c.add(Restrictions.sqlRestriction(sql));
 			c.add(Restrictions.sqlRestriction(sql1));
+			//c.add(Restrictions.eq("sskey.country", "US"));
 			Set<Station> set = new LinkedHashSet<Station>(c.list());
 			r = new ArrayList<Station>(set);
 			session.getTransaction().commit();
