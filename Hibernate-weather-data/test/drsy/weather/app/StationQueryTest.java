@@ -72,22 +72,6 @@ public class StationQueryTest {
 		System.out.println(list.getNetwork() + "    " + list.getStation());
 	}
 	
-	@Test
-	@Ignore
-	public void testaverageTemp() {
-		WdataKey key = new WdataKey();
-		testQuery ppl = new testQuery();
-		int date = 20121005;
-		String station = "DKRM8";
-		int time = 1215;
-		key.setDate(date);
-		key.setStation(station);
-		key.setTime(time);
-		ArrayList<Wdata> list = ppl.averageTemperature(key);
-		Assert.assertNotNull(list);
-		System.out.println("\nfound results" + list.size());
-		
-	}
 	
 	@Test
 	public void testStation() {
@@ -125,7 +109,7 @@ public class StationQueryTest {
 	}
 	
 	@Test
-	public void testdatathroughdate() {
+	public void testdatathroughdateandState() {
 		testQuery ppl = new testQuery();
 		int date = 20121005;
 		String state = "CA";
@@ -181,25 +165,50 @@ public class StationQueryTest {
 	}
 	
 	@Test
-	public void testStationdatathroughdate() {
+	public void testaverageStationdatathroughdate() {
 		testQuery ppl = new testQuery();
-		int date = 20121005;
-		float avg = 0;
-		int count = 0;
-		float temp = 0;
+		int date = 20121004;
 		List<Station> list = ppl.getStationsonDate(date);
 		Assert.assertNotNull(list);
 		System.out.println("Results Found ---> " + list.size());
-//		for(Station  l : list) {
-//			Collection<Wdata> o = l.getWdatas();
-//			Iterator<Wdata> itr = o.iterator();
-//			while(itr.hasNext()) {
-//				Wdata u = itr.next();
-//				temp += u.getTmpf();
-//				count++;
-//			}
-//		}
-//		avg = temp/count;
-//		System.out.println("----> AVERAGE TEMPERATURE:  " + avg + " AT STATE: " + state);
+		for(Station  l : list) {
+			float avg = 0;
+			int count = 0;
+			float temp = 0;
+			Collection<Wdata> o = l.getWdatas();
+			Iterator<Wdata> itr = o.iterator();
+			while(itr.hasNext()) {
+				Wdata u = itr.next();
+				temp += u.getTmpf();
+				count++;
+			}
+			avg = temp/count;
+			System.out.println("----> AT STATION: " + l.getId() + ", " + l.getName() + "  AVERAGE TEMPERATURE:  " + avg);
+		}
+	}
+	
+	@Test
+	public void testminimumStationdatathroughdate() {
+		testQuery ppl = new testQuery();
+		int date = 20121004;
+		float temp = 0, min = 0;
+		List<Station> list = ppl.getStationsonDate(date);
+		Assert.assertNotNull(list);
+		System.out.println("Results Found ---> " + list.size());
+		for(Station  l : list) {
+			Collection<Wdata> o = l.getWdatas();
+			Iterator<Wdata> itr = o.iterator();
+			while(itr.hasNext()) {
+				Wdata u = itr.next();
+				if (temp == 0) {
+					temp = u.getTmpf();
+				}
+				while (temp > u.getTmpf() && u.getTmpf() > -99) {
+					temp = u.getTmpf();
+				}
+			}
+			System.out.println("----> AT STATION: " + l.getId() + ", " + l.getName() + "  MINIMUM TEMPERATURE:  " + temp);
+			temp = 0;
+		}
 	}
 }
