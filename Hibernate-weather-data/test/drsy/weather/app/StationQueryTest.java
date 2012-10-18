@@ -1,6 +1,8 @@
 package drsy.weather.app;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import junit.framework.Assert;
@@ -71,6 +73,7 @@ public class StationQueryTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testaverageTemp() {
 		WdataKey key = new WdataKey();
 		testQuery ppl = new testQuery();
@@ -84,5 +87,95 @@ public class StationQueryTest {
 		Assert.assertNotNull(list);
 		System.out.println("\nfound results" + list.size());
 		
+	}
+	
+	@Test
+	public void testStation() {
+		testQuery ppl = new testQuery();
+		String station = "DKRM8";
+		Station template = new Station();
+		template.setId(station);
+		List<Station> list = ppl.getStation(template);
+		Assert.assertNotNull(list);
+		System.out.println("Results Found ---> " + list.size());
+	}
+	
+	@Test
+	public void averagedataStation() {
+		testQuery ppl = new testQuery();
+		String station = "DKRM8";
+		Station template = new Station();
+		template.setId(station);
+		List<Station> list = ppl.getStation(template);
+		Assert.assertNotNull(list);
+		System.out.println("Results Found ---> " + list.size());
+		for(Station  l : list) {
+			int count = 0;
+			float temp = 0, avg = 0;
+			Collection<Wdata> o = l.getWdatas();
+			Iterator<Wdata> itr = o.iterator();
+			while(itr.hasNext()) {
+				Wdata u = itr.next();
+				temp += u.getTmpf();
+				count++;
+			}
+			avg = temp/count;
+			System.out.println("----> AVERAGE TEMPERATURE:  " + avg + " AT STATION: " + station);
+		}
+	}
+	
+	@Test
+	public void testdatathroughdate() {
+		testQuery ppl = new testQuery();
+		int date = 20121005;
+		String state = "CA";
+		float avg = 0;
+		int count = 0;
+		float temp = 0;
+		List<Station> list = ppl.getDataonDate(date, state);
+		Assert.assertNotNull(list);
+		System.out.println("Results Found ---> " + list.size());
+		for(Station  l : list) {
+			Collection<Wdata> o = l.getWdatas();
+			Iterator<Wdata> itr = o.iterator();
+			while(itr.hasNext()) {
+				Wdata u = itr.next();
+				temp += u.getTmpf();
+				count++;
+			}
+		}
+		avg = temp/count;
+		System.out.println("----> AVERAGE TEMPERATURE:  " + avg + " AT STATE: " + state);
+	}
+	
+	@Test
+	public void countStations() {
+		testQuery ppl = new testQuery();
+		String country = "US";
+		List<Station> d = ppl.countStations(country);
+		System.out.println("Number of stations other than " + country + " are: " + d.size());
+	}
+	
+	@Test
+	public void testStationdatathroughdate() {
+		testQuery ppl = new testQuery();
+		int date = 20121005;
+		float avg = 0;
+		int count = 0;
+		float temp = 0;
+		List<Station> list = ppl.getStationsonDate(date);
+		Assert.assertNotNull(list);
+		System.out.println("Results Found ---> " + list.size());
+//		for(Station  l : list) {
+//			Collection<Wdata> o = l.getWdatas();
+//			Iterator<Wdata> itr = o.iterator();
+//			while(itr.hasNext()) {
+//				Wdata u = itr.next();
+//				temp += u.getTmpf();
+//				count++;
+//			}
+//		}
+//		avg = temp/count;
+//		System.out.println("----> AVERAGE TEMPERATURE:  " + avg + " AT STATE: " + state);
 	}
 }

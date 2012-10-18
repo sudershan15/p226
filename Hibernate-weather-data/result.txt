@@ -1,0 +1,83 @@
+Testsuite: drsy.weather.app.StationQueryTest
+Tests run: 4, Failures: 0, Errors: 1, Time elapsed: 5.907 sec
+------------- Standard Output ---------------
+
+-----------------------------------------------------
+19:03:20,825 DEBUG logging:176 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+19:03:22,223  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.WdataKey
+19:03:22,225  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.WdataKey
+19:03:22,228  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.StateId
+19:03:22,230  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.StateId
+19:03:24,451  INFO SchemaValidator:137 - HHH000229: Running schema validator
+19:03:24,452  INFO SchemaValidator:145 - HHH000102: Fetching database metadata
+19:03:24,512  INFO TableMetadata:65 - HHH000261: Table found: public.country
+19:03:24,514  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
+19:03:24,557  INFO TableMetadata:65 - HHH000261: Table found: public.network
+19:03:24,559  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
+19:03:24,599  INFO TableMetadata:65 - HHH000261: Table found: public.param
+19:03:24,601  INFO TableMetadata:66 - HHH000037: Columns: [id, eunits, descrip, munits]
+19:03:24,651  INFO TableMetadata:65 - HHH000261: Table found: public.state
+19:03:24,653  INFO TableMetadata:66 - HHH000037: Columns: [id, name, country_id]
+19:03:24,690  INFO TableMetadata:65 - HHH000261: Table found: public.station
+19:03:24,692  INFO TableMetadata:66 - HHH000037: Columns: [id, sec_id, status, elevation, name, state, longitude, latitude, network, country]
+19:03:24,737  INFO TableMetadata:65 - HHH000261: Table found: public.wdata
+19:03:24,739  INFO TableMetadata:66 - HHH000037: Columns: [gust, station, elev, drct, dwpf, date, long, network, relh, time, p24i, wthr, alti, tmpf, sknt, pmsl, lat]
+Hibernate: select this_.id as id4_0_, this_.elevation as elevation4_0_, this_.latitude as latitude4_0_, this_.longitude as longitude4_0_, this_.name as name4_0_, this_.network as network4_0_, this_.sec_id as sec7_4_0_, this_.country as country4_0_, this_.state as state4_0_, this_.status as status4_0_ from station this_ where this_.id = ? limit ?
+
+found 1 results
+drsy.weather.data.Station@5d684e26
+
+-----------------------------------------------------
+Hibernate: select network0_.id as id1_0_, network0_.name as name1_0_ from network network0_ where network0_.id=?
+ARL SORD
+
+-----------------------------------------------------
+Hibernate: select wdata0_.date as date5_0_, wdata0_.station as station5_0_, wdata0_.time as time5_0_, wdata0_.alti as alti5_0_, wdata0_.drct as drct5_0_, wdata0_.dwpf as dwpf5_0_, wdata0_.gust as gust5_0_, wdata0_.network as network5_0_, wdata0_.p24i as p9_5_0_, wdata0_.pmsl as pmsl5_0_, wdata0_.relh as relh5_0_, wdata0_.sknt as sknt5_0_, wdata0_.tmpf as tmpf5_0_, wdata0_.wthr as wthr5_0_ from wdata wdata0_ where wdata0_.date=? and wdata0_.station=? and wdata0_.time=?
+
+found results
+106    DKRM8
+
+-----------------------------------------------------
+------------- ---------------- ---------------
+
+Testcase: testCriteria took 5.059 sec
+Testcase: testQueryHQL took 0.022 sec
+Testcase: testWdatakey took 0.02 sec
+Testcase: testaverageTemp took 0.607 sec
+	Caused an ERROR
+could not resolve property: station of: drsy.weather.data.Wdata [select new drsy.weather.app.Count(p.tmpf) from drsy.weather.data.Wdata as p where p.station = :station and p.date = :date]
+org.hibernate.QueryException: could not resolve property: station of: drsy.weather.data.Wdata [select new drsy.weather.app.Count(p.tmpf) from drsy.weather.data.Wdata as p where p.station = :station and p.date = :date]
+	at org.hibernate.persister.entity.AbstractPropertyMapping.propertyException(AbstractPropertyMapping.java:83)
+	at org.hibernate.persister.entity.AbstractPropertyMapping.toType(AbstractPropertyMapping.java:77)
+	at org.hibernate.persister.entity.AbstractEntityPersister.toType(AbstractEntityPersister.java:1920)
+	at org.hibernate.hql.internal.ast.tree.FromElementType.getPropertyType(FromElementType.java:313)
+	at org.hibernate.hql.internal.ast.tree.FromElement.getPropertyType(FromElement.java:494)
+	at org.hibernate.hql.internal.ast.tree.DotNode.getDataType(DotNode.java:598)
+	at org.hibernate.hql.internal.ast.tree.DotNode.prepareLhs(DotNode.java:266)
+	at org.hibernate.hql.internal.ast.tree.DotNode.resolve(DotNode.java:213)
+	at org.hibernate.hql.internal.ast.tree.FromReferenceNode.resolve(FromReferenceNode.java:118)
+	at org.hibernate.hql.internal.ast.tree.FromReferenceNode.resolve(FromReferenceNode.java:114)
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.resolve(HqlSqlWalker.java:881)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.expr(HqlSqlBaseWalker.java:1264)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.exprOrSubquery(HqlSqlBaseWalker.java:4297)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.comparisonExpr(HqlSqlBaseWalker.java:3769)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:1947)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:1872)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.whereClause(HqlSqlBaseWalker.java:794)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:595)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:299)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:247)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:248)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:183)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:136)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:105)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:168)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:219)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:197)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1732)
+	at org.hibernate.context.internal.ThreadLocalSessionContext$TransactionProtectionWrapper.invoke(ThreadLocalSessionContext.java:352)
+	at $Proxy14.createQuery(Unknown Source)
+	at drsy.weather.app.testQuery.averageTemperature(testQuery.java:183)
+	at drsy.weather.app.StationQueryTest.testaverageTemp(StationQueryTest.java:83)
+

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -169,6 +170,98 @@ public class testQuery {
 		return r;
 	}
 
+	public List<Station> getStation(Station template) {
+		ArrayList<Station> r = null;
+
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+
+			// since the data is being detached we must fetch eagerly
+			Criteria c = session.createCriteria(Station.class);
+			c.setFetchMode("wdata", FetchMode.JOIN);
+			c.add(Restrictions.idEq(template.getId()));
+			Set<Station> set = new LinkedHashSet<Station>(c.list());
+			r = new ArrayList<Station>(set);
+			session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return r;
+	}
+	
+	public List<Station> countStations(String country) {
+		ArrayList<Station> r = null;
+
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+
+			// since the data is being detached we must fetch eagerly
+			Criteria c = session.createCriteria(Station.class);
+			c.setFetchMode("wdata", FetchMode.JOIN);
+			c.add(Restrictions.ne("sskey.country", country));
+			Set<Station> set = new LinkedHashSet<Station>(c.list());
+			r = new ArrayList<Station>(set);
+			session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return r;
+	}
+	
+	
+	public List<Station> getDataonDate(int date, String state) {
+		ArrayList<Station> r = null;
+
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+
+			// since the data is being detached we must fetch eagerly
+			Criteria c = session.createCriteria(Station.class);
+			c.setFetchMode("wdata", FetchMode.JOIN);
+			String sql = "wdatas2_.date = " + date; 
+			String sql1 = "wdatas2_.tmpf > -99";
+			c.add(Restrictions.sqlRestriction(sql));
+			c.add(Restrictions.sqlRestriction(sql1));
+			c.add(Restrictions.eq("sskey.state", state));
+			Set<Station> set = new LinkedHashSet<Station>(c.list());
+			r = new ArrayList<Station>(set);
+			session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return r;
+	}
+	
+	public List<Station> getStationsonDate(int date) {
+		ArrayList<Station> r = null;
+
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+
+			// since the data is being detached we must fetch eagerly
+			Criteria c = session.createCriteria(Station.class);
+			c.setFetchMode("wdata", FetchMode.JOIN);
+			String sql = "wdatas2_.date = " + date; 
+			String sql1 = "wdatas2_.tmpf > -99";
+			c.add(Restrictions.sqlRestriction(sql));
+			c.add(Restrictions.sqlRestriction(sql1));
+			Set<Station> set = new LinkedHashSet<Station>(c.list());
+			r = new ArrayList<Station>(set);
+			session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return r;
+	}
+	
 	public ArrayList<Wdata> averageTemperature(WdataKey key) {
 		if(key == null) {
 			return null;
