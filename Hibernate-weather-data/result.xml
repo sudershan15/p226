@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="1" failures="0" hostname="SMALPANI-T420" name="drsy.weather.app.StationQueryTest" tests="4" time="5.907" timestamp="2012-10-18T02:03:20">
+<testsuite errors="0" failures="0" hostname="SMALPANI-T420" name="drsy.weather.app.StationQueryTest" tests="10" time="25.931" timestamp="2012-10-18T07:54:08">
   <properties>
     <property name="java.vendor" value="Sun Microsystems Inc." />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -52,7 +52,7 @@
     <property name="java.vendor.url" value="http://java.sun.com/" />
     <property name="java.vm.vendor" value="Sun Microsystems Inc." />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner drsy.weather.app.StationQueryTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter,C:\Users\smalpani\workspace\226\Hibernate-weather-data\result.txt formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\smalpani\workspace\226\Hibernate-weather-data\result.xml crashfile=C:\Users\smalpani\workspace\226\Hibernate-weather-data\junitvmwatcher2750099717066329736.properties propsfile=C:\Users\smalpani\workspace\226\Hibernate-weather-data\junit8477623171333917082.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner drsy.weather.app.StationQueryTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter,C:\Users\smalpani\workspace\226\Hibernate-weather-data\result.txt formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\smalpani\workspace\226\Hibernate-weather-data\result.xml crashfile=C:\Users\smalpani\workspace\226\Hibernate-weather-data\junitvmwatcher6970456737895229767.properties propsfile=C:\Users\smalpani\workspace\226\Hibernate-weather-data\junit5078549648093717151.properties" />
     <property name="java.class.path" value="C:\Users\smalpani\workspace\226\Hibernate-weather-data\classes;C:\eclipse\plugins\org.junit_4.10.0.v4_10_0_v20120426-0900\junit.jar;C:\Users\smalpani\workspace\226\Hibernate-weather-data\lib\slf4j-log4j12-1.6.1.jar;C:\Users\smalpani\workspace\226\Hibernate-weather-data\lib\hamcrest-all-1.3.jar;C:\Users\smalpani\workspace\226\Hibernate-weather-data\lib\log4j-1.2.14.jar;C:\Users\smalpani\workspace\226\Hibernate-weather-data\lib\postgresql-9.0-801.jdbc4.jar;C:\hibernate-release-4.1.7.Final\ehcache-1.5.0.jar;C:\hibernate-release-4.1.7.Final\lib\required\antlr-2.7.7.jar;C:\hibernate-release-4.1.7.Final\lib\required\dom4j-1.6.1.jar;C:\hibernate-release-4.1.7.Final\lib\required\hibernate-commons-annotations-4.0.1.Final.jar;C:\hibernate-release-4.1.7.Final\lib\required\hibernate-core-4.1.7.Final.jar;C:\hibernate-release-4.1.7.Final\lib\required\hibernate-jpa-2.0-api-1.0.1.Final.jar;C:\hibernate-release-4.1.7.Final\lib\required\javassist-3.15.0-GA.jar;C:\hibernate-release-4.1.7.Final\lib\required\jboss-logging-3.1.0.GA.jar;C:\hibernate-release-4.1.7.Final\lib\required\jboss-transaction-api_1.1_spec-1.0.0.Final.jar;C:\hibernate-release-4.1.7.Final\lib\jpa\hibernate-entitymanager-4.1.7.Final.jar;C:\Users\smalpani\workspace\226\Hibernate-weather-data;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip;C:\eclipse\plugins\org.apache.ant_1.8.3.v20120321-1730\lib\ant-launcher.jar;C:\eclipse\plugins\org.apache.ant_1.8.3.v20120321-1730\lib\ant.jar;C:\eclipse\plugins\org.apache.ant_1.8.3.v20120321-1730\lib\ant-junit.jar;C:\eclipse\plugins\org.apache.ant_1.8.3.v20120321-1730\lib\ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.8.3 compiled on February 26 2012" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
@@ -78,71 +78,41 @@
     <property name="src.dir" value="C:\Users\smalpani\workspace\226\Hibernate-weather-data\src" />
     <property name="ant.project.invoked-targets" value="build,init,clean,build.test,test.query" />
   </properties>
-  <testcase classname="drsy.weather.app.StationQueryTest" name="testCriteria" time="5.061" />
-  <testcase classname="drsy.weather.app.StationQueryTest" name="testQueryHQL" time="0.022" />
-  <testcase classname="drsy.weather.app.StationQueryTest" name="testWdatakey" time="0.02" />
-  <testcase classname="drsy.weather.app.StationQueryTest" name="testaverageTemp" time="0.615">
-    <error message="could not resolve property: station of: drsy.weather.data.Wdata [select new drsy.weather.app.Count(p.tmpf) from drsy.weather.data.Wdata as p where p.station = :station and p.date = :date]" type="org.hibernate.QueryException">org.hibernate.QueryException: could not resolve property: station of: drsy.weather.data.Wdata [select new drsy.weather.app.Count(p.tmpf) from drsy.weather.data.Wdata as p where p.station = :station and p.date = :date]
-	at org.hibernate.persister.entity.AbstractPropertyMapping.propertyException(AbstractPropertyMapping.java:83)
-	at org.hibernate.persister.entity.AbstractPropertyMapping.toType(AbstractPropertyMapping.java:77)
-	at org.hibernate.persister.entity.AbstractEntityPersister.toType(AbstractEntityPersister.java:1920)
-	at org.hibernate.hql.internal.ast.tree.FromElementType.getPropertyType(FromElementType.java:313)
-	at org.hibernate.hql.internal.ast.tree.FromElement.getPropertyType(FromElement.java:494)
-	at org.hibernate.hql.internal.ast.tree.DotNode.getDataType(DotNode.java:598)
-	at org.hibernate.hql.internal.ast.tree.DotNode.prepareLhs(DotNode.java:266)
-	at org.hibernate.hql.internal.ast.tree.DotNode.resolve(DotNode.java:213)
-	at org.hibernate.hql.internal.ast.tree.FromReferenceNode.resolve(FromReferenceNode.java:118)
-	at org.hibernate.hql.internal.ast.tree.FromReferenceNode.resolve(FromReferenceNode.java:114)
-	at org.hibernate.hql.internal.ast.HqlSqlWalker.resolve(HqlSqlWalker.java:881)
-	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.expr(HqlSqlBaseWalker.java:1264)
-	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.exprOrSubquery(HqlSqlBaseWalker.java:4297)
-	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.comparisonExpr(HqlSqlBaseWalker.java:3769)
-	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:1947)
-	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:1872)
-	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.whereClause(HqlSqlBaseWalker.java:794)
-	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:595)
-	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:299)
-	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:247)
-	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:248)
-	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:183)
-	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:136)
-	at org.hibernate.engine.query.spi.HQLQueryPlan.&lt;init&gt;(HQLQueryPlan.java:105)
-	at org.hibernate.engine.query.spi.HQLQueryPlan.&lt;init&gt;(HQLQueryPlan.java:80)
-	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:168)
-	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:219)
-	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:197)
-	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1732)
-	at org.hibernate.context.internal.ThreadLocalSessionContext$TransactionProtectionWrapper.invoke(ThreadLocalSessionContext.java:352)
-	at $Proxy14.createQuery(Unknown Source)
-	at drsy.weather.app.testQuery.averageTemperature(testQuery.java:183)
-	at drsy.weather.app.StationQueryTest.testaverageTemp(StationQueryTest.java:83)
-</error>
-  </testcase>
+  <testcase classname="drsy.weather.app.StationQueryTest" name="testCriteria" time="5.03" />
+  <testcase classname="drsy.weather.app.StationQueryTest" name="testQueryHQL" time="0.016" />
+  <testcase classname="drsy.weather.app.StationQueryTest" name="testWdatakey" time="0.01" />
+  <testcase classname="drsy.weather.app.StationQueryTest" name="testStation" time="0.18" />
+  <testcase classname="drsy.weather.app.StationQueryTest" name="averagedataStation" time="0.173" />
+  <testcase classname="drsy.weather.app.StationQueryTest" name="testdatathroughdateandState" time="4.928" />
+  <testcase classname="drsy.weather.app.StationQueryTest" name="countStations" time="9.534" />
+  <testcase classname="drsy.weather.app.StationQueryTest" name="stationsRange" time="5.16" />
+  <testcase classname="drsy.weather.app.StationQueryTest" name="testaverageStationdatathroughdate" time="0.353" />
+  <testcase classname="drsy.weather.app.StationQueryTest" name="testminimumStationdatathroughdate" time="0.331" />
   <system-out><![CDATA[
 -----------------------------------------------------
-19:03:20,825 DEBUG logging:176 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-19:03:22,223  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.WdataKey
-19:03:22,225  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.WdataKey
-19:03:22,228  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.StateId
-19:03:22,230  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.StateId
-19:03:24,451  INFO SchemaValidator:137 - HHH000229: Running schema validator
-19:03:24,452  INFO SchemaValidator:145 - HHH000102: Fetching database metadata
-19:03:24,512  INFO TableMetadata:65 - HHH000261: Table found: public.country
-19:03:24,514  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
-19:03:24,557  INFO TableMetadata:65 - HHH000261: Table found: public.network
-19:03:24,559  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
-19:03:24,599  INFO TableMetadata:65 - HHH000261: Table found: public.param
-19:03:24,601  INFO TableMetadata:66 - HHH000037: Columns: [id, eunits, descrip, munits]
-19:03:24,651  INFO TableMetadata:65 - HHH000261: Table found: public.state
-19:03:24,653  INFO TableMetadata:66 - HHH000037: Columns: [id, name, country_id]
-19:03:24,690  INFO TableMetadata:65 - HHH000261: Table found: public.station
-19:03:24,692  INFO TableMetadata:66 - HHH000037: Columns: [id, sec_id, status, elevation, name, state, longitude, latitude, network, country]
-19:03:24,737  INFO TableMetadata:65 - HHH000261: Table found: public.wdata
-19:03:24,739  INFO TableMetadata:66 - HHH000037: Columns: [gust, station, elev, drct, dwpf, date, long, network, relh, time, p24i, wthr, alti, tmpf, sknt, pmsl, lat]
-Hibernate: select this_.id as id4_0_, this_.elevation as elevation4_0_, this_.latitude as latitude4_0_, this_.longitude as longitude4_0_, this_.name as name4_0_, this_.network as network4_0_, this_.sec_id as sec7_4_0_, this_.country as country4_0_, this_.state as state4_0_, this_.status as status4_0_ from station this_ where this_.id = ? limit ?
+00:54:08,713 DEBUG logging:176 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+00:54:10,173  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.WdataKey
+00:54:10,175  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.WdataKey
+00:54:10,178  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.StateId
+00:54:10,179  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.StateId
+00:54:12,313  INFO SchemaValidator:137 - HHH000229: Running schema validator
+00:54:12,316  INFO SchemaValidator:145 - HHH000102: Fetching database metadata
+00:54:12,368  INFO TableMetadata:65 - HHH000261: Table found: public.country
+00:54:12,369  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
+00:54:12,392  INFO TableMetadata:65 - HHH000261: Table found: public.network
+00:54:12,393  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
+00:54:12,414  INFO TableMetadata:65 - HHH000261: Table found: public.param
+00:54:12,415  INFO TableMetadata:66 - HHH000037: Columns: [id, eunits, descrip, munits]
+00:54:12,438  INFO TableMetadata:65 - HHH000261: Table found: public.state
+00:54:12,439  INFO TableMetadata:66 - HHH000037: Columns: [id, name, country_id]
+00:54:12,462  INFO TableMetadata:65 - HHH000261: Table found: public.station
+00:54:12,464  INFO TableMetadata:66 - HHH000037: Columns: [id, sec_id, status, elevation, name, state, longitude, latitude, network, country]
+00:54:12,500  INFO TableMetadata:65 - HHH000261: Table found: public.wdata
+00:54:12,501  INFO TableMetadata:66 - HHH000037: Columns: [gust, station, elev, drct, dwpf, date, long, network, relh, time, p24i, wthr, alti, tmpf, sknt, pmsl, lat]
+Hibernate: select this_.id as id4_1_, this_.elevation as elevation4_1_, this_.latitude as latitude4_1_, this_.longitude as longitude4_1_, this_.name as name4_1_, this_.network as network4_1_, this_.sec_id as sec7_4_1_, this_.country as country4_1_, this_.state as state4_1_, this_.status as status4_1_, wdatas2_.station as station4_3_, wdatas2_.date as date5_3_, wdatas2_.station as station5_3_, wdatas2_.time as time5_3_, wdatas2_.date as date5_0_, wdatas2_.station as station5_0_, wdatas2_.time as time5_0_, wdatas2_.alti as alti5_0_, wdatas2_.drct as drct5_0_, wdatas2_.dwpf as dwpf5_0_, wdatas2_.gust as gust5_0_, wdatas2_.network as network5_0_, wdatas2_.p24i as p9_5_0_, wdatas2_.pmsl as pmsl5_0_, wdatas2_.relh as relh5_0_, wdatas2_.sknt as sknt5_0_, wdatas2_.tmpf as tmpf5_0_, wdatas2_.wthr as wthr5_0_ from station this_ left outer join wdata wdatas2_ on this_.id=wdatas2_.station where this_.id = ? limit ?
 
 found 1 results
-drsy.weather.data.Station@5d684e26
+drsy.weather.data.Station@151ff451
 
 -----------------------------------------------------
 Hibernate: select network0_.id as id1_0_, network0_.name as name1_0_ from network network0_ where network0_.id=?
@@ -155,6 +125,681 @@ found results
 106    DKRM8
 
 -----------------------------------------------------
+Hibernate: select this_.id as id4_1_, this_.elevation as elevation4_1_, this_.latitude as latitude4_1_, this_.longitude as longitude4_1_, this_.name as name4_1_, this_.network as network4_1_, this_.sec_id as sec7_4_1_, this_.country as country4_1_, this_.state as state4_1_, this_.status as status4_1_, wdatas2_.station as station4_3_, wdatas2_.date as date5_3_, wdatas2_.station as station5_3_, wdatas2_.time as time5_3_, wdatas2_.date as date5_0_, wdatas2_.station as station5_0_, wdatas2_.time as time5_0_, wdatas2_.alti as alti5_0_, wdatas2_.drct as drct5_0_, wdatas2_.dwpf as dwpf5_0_, wdatas2_.gust as gust5_0_, wdatas2_.network as network5_0_, wdatas2_.p24i as p9_5_0_, wdatas2_.pmsl as pmsl5_0_, wdatas2_.relh as relh5_0_, wdatas2_.sknt as sknt5_0_, wdatas2_.tmpf as tmpf5_0_, wdatas2_.wthr as wthr5_0_ from station this_ left outer join wdata wdatas2_ on this_.id=wdatas2_.station where this_.id = ?
+Results Found ---> 1
+
+-----------------------------------------------------
+Hibernate: select this_.id as id4_1_, this_.elevation as elevation4_1_, this_.latitude as latitude4_1_, this_.longitude as longitude4_1_, this_.name as name4_1_, this_.network as network4_1_, this_.sec_id as sec7_4_1_, this_.country as country4_1_, this_.state as state4_1_, this_.status as status4_1_, wdatas2_.station as station4_3_, wdatas2_.date as date5_3_, wdatas2_.station as station5_3_, wdatas2_.time as time5_3_, wdatas2_.date as date5_0_, wdatas2_.station as station5_0_, wdatas2_.time as time5_0_, wdatas2_.alti as alti5_0_, wdatas2_.drct as drct5_0_, wdatas2_.dwpf as dwpf5_0_, wdatas2_.gust as gust5_0_, wdatas2_.network as network5_0_, wdatas2_.p24i as p9_5_0_, wdatas2_.pmsl as pmsl5_0_, wdatas2_.relh as relh5_0_, wdatas2_.sknt as sknt5_0_, wdatas2_.tmpf as tmpf5_0_, wdatas2_.wthr as wthr5_0_ from station this_ left outer join wdata wdatas2_ on this_.id=wdatas2_.station where this_.id = ?
+Results Found ---> 1
+----> AVERAGE TEMPERATURE:  44.5125 AT STATION: DKRM8
+
+-----------------------------------------------------
+Hibernate: select this_.id as id4_1_, this_.elevation as elevation4_1_, this_.latitude as latitude4_1_, this_.longitude as longitude4_1_, this_.name as name4_1_, this_.network as network4_1_, this_.sec_id as sec7_4_1_, this_.country as country4_1_, this_.state as state4_1_, this_.status as status4_1_, wdatas2_.station as station4_3_, wdatas2_.date as date5_3_, wdatas2_.station as station5_3_, wdatas2_.time as time5_3_, wdatas2_.date as date5_0_, wdatas2_.station as station5_0_, wdatas2_.time as time5_0_, wdatas2_.alti as alti5_0_, wdatas2_.drct as drct5_0_, wdatas2_.dwpf as dwpf5_0_, wdatas2_.gust as gust5_0_, wdatas2_.network as network5_0_, wdatas2_.p24i as p9_5_0_, wdatas2_.pmsl as pmsl5_0_, wdatas2_.relh as relh5_0_, wdatas2_.sknt as sknt5_0_, wdatas2_.tmpf as tmpf5_0_, wdatas2_.wthr as wthr5_0_ from station this_ left outer join wdata wdatas2_ on this_.id=wdatas2_.station where wdatas2_.date = 20121005 and wdatas2_.tmpf > -99 and this_.state=?
+Results Found ---> 1402
+----> AVERAGE TEMPERATURE:  55.328156 AT STATE: CA
+
+-----------------------------------------------------
+Hibernate: select this_.id as id4_1_, this_.elevation as elevation4_1_, this_.latitude as latitude4_1_, this_.longitude as longitude4_1_, this_.name as name4_1_, this_.network as network4_1_, this_.sec_id as sec7_4_1_, this_.country as country4_1_, this_.state as state4_1_, this_.status as status4_1_, wdatas2_.station as station4_3_, wdatas2_.date as date5_3_, wdatas2_.station as station5_3_, wdatas2_.time as time5_3_, wdatas2_.date as date5_0_, wdatas2_.station as station5_0_, wdatas2_.time as time5_0_, wdatas2_.alti as alti5_0_, wdatas2_.drct as drct5_0_, wdatas2_.dwpf as dwpf5_0_, wdatas2_.gust as gust5_0_, wdatas2_.network as network5_0_, wdatas2_.p24i as p9_5_0_, wdatas2_.pmsl as pmsl5_0_, wdatas2_.relh as relh5_0_, wdatas2_.sknt as sknt5_0_, wdatas2_.tmpf as tmpf5_0_, wdatas2_.wthr as wthr5_0_ from station this_ left outer join wdata wdatas2_ on this_.id=wdatas2_.station where this_.country<>?
+Number of stations other than US are: 2247
+
+-----------------------------------------------------
+Hibernate: select this_.id as id4_1_, this_.elevation as elevation4_1_, this_.latitude as latitude4_1_, this_.longitude as longitude4_1_, this_.name as name4_1_, this_.network as network4_1_, this_.sec_id as sec7_4_1_, this_.country as country4_1_, this_.state as state4_1_, this_.status as status4_1_, wdatas2_.station as station4_3_, wdatas2_.date as date5_3_, wdatas2_.station as station5_3_, wdatas2_.time as time5_3_, wdatas2_.date as date5_0_, wdatas2_.station as station5_0_, wdatas2_.time as time5_0_, wdatas2_.alti as alti5_0_, wdatas2_.drct as drct5_0_, wdatas2_.dwpf as dwpf5_0_, wdatas2_.gust as gust5_0_, wdatas2_.network as network5_0_, wdatas2_.p24i as p9_5_0_, wdatas2_.pmsl as pmsl5_0_, wdatas2_.relh as relh5_0_, wdatas2_.sknt as sknt5_0_, wdatas2_.tmpf as tmpf5_0_, wdatas2_.wthr as wthr5_0_ from station this_ left outer join wdata wdatas2_ on this_.id=wdatas2_.station where this_.latitude between ? and ? and this_.longitude between ? and ?
+Number of stations between Latitudes(43.0, 45.0) & Longitudes: (-93.0, -83.0) are: 637
+----> AVERAGE TEMPERATURE:  44.19859 AT STATION: WA9JDR Altoona
+----> AVERAGE TEMPERATURE:  44.91657 AT STATION: CW0101 Eau Claire
+----> AVERAGE TEMPERATURE:  43.41657 AT STATION: CW0617 Plover
+----> AVERAGE TEMPERATURE:  44.68449 AT STATION: CW0681 Breckenridge
+----> AVERAGE TEMPERATURE:  43.991848 AT STATION: CW1238 St.Ansgar
+----> AVERAGE TEMPERATURE:  46.49299 AT STATION: CW1419 Pewaukee
+----> AVERAGE TEMPERATURE:  45.220016 AT STATION: CW1988 Brookfield
+----> AVERAGE TEMPERATURE:  45.940018 AT STATION: CW2086 Waunakee
+----> AVERAGE TEMPERATURE:  44.135403 AT STATION: CW2106 Stevens Point
+----> AVERAGE TEMPERATURE:  44.556602 AT STATION: CW2158 Sturgeon Bay
+----> AVERAGE TEMPERATURE:  45.273537 AT STATION: CW2407 Kimberly
+----> AVERAGE TEMPERATURE:  44.212322 AT STATION: CW2841 Richfield
+----> AVERAGE TEMPERATURE:  42.814888 AT STATION: CW3319 Woodbury
+----> AVERAGE TEMPERATURE:  40.065178 AT STATION: CW3699 Lake City
+----> AVERAGE TEMPERATURE:  45.415077 AT STATION: CW3773 Okauchee
+----> AVERAGE TEMPERATURE:  45.388435 AT STATION: CW3882 Mauston
+----> AVERAGE TEMPERATURE:  38.61351 AT STATION: CW4143 Gaylord
+----> AVERAGE TEMPERATURE:  75.020004 AT STATION: CW4227 Navarino
+----> AVERAGE TEMPERATURE:  45.320015 AT STATION: CW4731 De Soto
+----> AVERAGE TEMPERATURE:  46.554737 AT STATION: CW4869 Caseville
+----> AVERAGE TEMPERATURE:  47.904312 AT STATION: CW5327 Muskegon
+----> AVERAGE TEMPERATURE:  43.480953 AT STATION: CW5689 Lakeland
+----> AVERAGE TEMPERATURE:  46.39501 AT STATION: CW5937 Sturgeon Bay
+----> AVERAGE TEMPERATURE:  46.962044 AT STATION: CW6018 Muskegon
+----> AVERAGE TEMPERATURE:  43.52771 AT STATION: CW6297 Greenville
+----> AVERAGE TEMPERATURE:  43.765358 AT STATION: CW6316 Green Bay
+----> AVERAGE TEMPERATURE:  45.45138 AT STATION: CW6791 Green Bay
+----> AVERAGE TEMPERATURE:  42.520016 AT STATION: CW7148 Lake City
+----> AVERAGE TEMPERATURE:  43.830826 AT STATION: CW7559 Cottage Grove
+----> AVERAGE TEMPERATURE:  45.05009 AT STATION: CW8065 Beaver Dam
+----> AVERAGE TEMPERATURE:  43.061684 AT STATION: CW8075 Cedar Springs
+----> AVERAGE TEMPERATURE:  43.9906 AT STATION: CW8246 Woodbury
+----> AVERAGE TEMPERATURE:  45.57074 AT STATION: CW8408 Dousman
+----> AVERAGE TEMPERATURE:  48.084953 AT STATION: CW8495 Muskegon
+----> AVERAGE TEMPERATURE:  42.885395 AT STATION: CW8544 Rochester
+----> AVERAGE TEMPERATURE:  39.623463 AT STATION: CW9371 Oxbow Lake
+----> AVERAGE TEMPERATURE:  45.171524 AT STATION: CW9703 East Tawas
+----> AVERAGE TEMPERATURE:  43.413948 AT STATION: CW9712 West Bend
+----> AVERAGE TEMPERATURE:  46.038532 AT STATION: CW9730 Glendale
+----> AVERAGE TEMPERATURE:  43.842236 AT STATION: CW9861 Rockford
+----> AVERAGE TEMPERATURE:  43.471867 AT STATION: DW0065 Midland
+----> AVERAGE TEMPERATURE:  40.344692 AT STATION: DW0390 Baldwin
+----> AVERAGE TEMPERATURE:  45.543827 AT STATION: DW0523 Glen Arbor
+----> AVERAGE TEMPERATURE:  44.693485 AT STATION: DW0723 Waupaca
+----> AVERAGE TEMPERATURE:  45.408173 AT STATION: DW0775 Middleton
+----> AVERAGE TEMPERATURE:  44.37101 AT STATION: DW1032 Marlette
+----> AVERAGE TEMPERATURE:  43.47314 AT STATION: DW1520 Rochester
+----> AVERAGE TEMPERATURE:  45.046684 AT STATION: DW1562 La Crosse
+----> AVERAGE TEMPERATURE:  44.408905 AT STATION: DW1880 Sun Prairie
+----> AVERAGE TEMPERATURE:  43.650154 AT STATION: DW2187 Saginaw
+----> AVERAGE TEMPERATURE:  38.31631 AT STATION: DW3024 Castlewood Dr; Gaylord
+----> AVERAGE TEMPERATURE:  44.924126 AT STATION: DW3093 Monona
+----> AVERAGE TEMPERATURE:  46.23313 AT STATION: DW3261 Brown Deer
+----> AVERAGE TEMPERATURE:  43.472073 AT STATION: DW3800 Maplewood
+----> AVERAGE TEMPERATURE:  42.926258 AT STATION: DW4502 Brookfield
+----> AVERAGE TEMPERATURE:  45.270016 AT STATION: DW5272 Montague
+----> AVERAGE TEMPERATURE:  45.06349 AT STATION: DW5336 Traverse City
+----> AVERAGE TEMPERATURE:  44.312943 AT STATION: DW5588 Mount Pleasant
+----> AVERAGE TEMPERATURE:  43.03962 AT STATION: DW5590 Rapid City
+----> AVERAGE TEMPERATURE:  38.998272 AT STATION: DW5664 GaylordNWS; Gaylord
+----> AVERAGE TEMPERATURE:  46.774734 AT STATION: DW6011 Glendale
+----> AVERAGE TEMPERATURE:  44.236225 AT STATION: DW6100 Hastings
+----> AVERAGE TEMPERATURE:  45.64858 AT STATION: DW6208 Wolf River
+----> AVERAGE TEMPERATURE:  44.176266 AT STATION: DW6359 Cambria
+----> AVERAGE TEMPERATURE:  44.63031 AT STATION: DW6658 Red Wing
+----> AVERAGE TEMPERATURE:  44.97163 AT STATION: DW7436 Wisconsin Dells
+----> AVERAGE TEMPERATURE:  40.55166 AT STATION: DW7451 Hewitt
+----> AVERAGE TEMPERATURE:  45.93893 AT STATION: DW7500 Pentwater
+----> AVERAGE TEMPERATURE:  91.02001 AT STATION: DW7518 Hartford
+----> AVERAGE TEMPERATURE:  45.283173 AT STATION: DW7566 Lodi
+----> AVERAGE TEMPERATURE:  45.260757 AT STATION: DW7569 Necedah
+----> AVERAGE TEMPERATURE:  44.818672 AT STATION: DW7584 Seymour
+----> AVERAGE TEMPERATURE:  43.39501 AT STATION: DW7838 Flushing
+----> AVERAGE TEMPERATURE:  45.645008 AT STATION: DW8095 Wabasha
+----> AVERAGE TEMPERATURE:  46.485424 AT STATION: DW8097 Lake City
+----> AVERAGE TEMPERATURE:  44.54942 AT STATION: DW8231 Denmark Township
+----> AVERAGE TEMPERATURE:  43.534294 AT STATION: DW8391 Midland
+----> AVERAGE TEMPERATURE:  43.76326 AT STATION: DW8463 Zumbrota
+----> AVERAGE TEMPERATURE:  44.67385 AT STATION: DW8741 Portage
+----> AVERAGE TEMPERATURE:  41.617332 AT STATION: DW8813 Bendon
+----> AVERAGE TEMPERATURE:  44.9291 AT STATION: DW9113 Manistee
+----> AVERAGE TEMPERATURE:  45.09033 AT STATION: DW9310 Appleton
+----> AVERAGE TEMPERATURE:  43.52945 AT STATION: DW9748 West Bend
+----> AVERAGE TEMPERATURE:  43.893967 AT STATION: DW9881 Stevens Point
+----> AVERAGE TEMPERATURE:  43.558475 AT STATION: KCYM4 Kent City
+----> AVERAGE TEMPERATURE:  -123.6736 AT STATION: Decorah (IA-9)
+----> AVERAGE TEMPERATURE:  49.97135 AT STATION: Muskegon
+----> AVERAGE TEMPERATURE:  48.868496 AT STATION: Milwaukee
+----> AVERAGE TEMPERATURE:  42.717487 AT STATION: Dexter I-90 MP 195
+----> AVERAGE TEMPERATURE:  43.284176 AT STATION: Jct CR 7 I-90 MP 226
+----> AVERAGE TEMPERATURE:  48.087814 AT STATION: Ridgeway I-90 MP 261
+----> AVERAGE TEMPERATURE:  42.01319 AT STATION: Byron US-14 MP 200
+----> AVERAGE TEMPERATURE:  44.254353 AT STATION: Caledonia MN-44 MP 60
+----> AVERAGE TEMPERATURE:  42.84385 AT STATION: Cannon Falls US-52 MP 90
+----> AVERAGE TEMPERATURE:  43.426624 AT STATION: Red Wing US-61 MP 101
+----> AVERAGE TEMPERATURE:  46.106525 AT STATION: Kellogg US-61 MP 53
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: Rochester US-63 MP 32
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: BLACK RIVER AT BLACK RIVER FALLS
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: CEDAR RIVER AT CHARLES CITY
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: TREMPEALEAU RIVER AT DODGE
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: CHIPPEWA RIVER AT DURAND
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: BLACK RIVER NEAR GALESVILLE 3SE
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: MISSISSIPPI RIVER AT MCGREGOR NO 2
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: WISCONSIN RIVER AT MUSCODA
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: WOLF RIVER AT NEW LONDON
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: SOUTH FORK ZUMBRO RVR AT HWY 14 NR ROCHESTER
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: SILVER CREEK AT ROCHESTER
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: EAU GALLE DAM T/W AT SPRING VALLEY
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: LAKE POYGAN NEAR WINNECONNE 5NW
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: WAUPACA RIVER AT WAUPACA
+----> AVERAGE TEMPERATURE:  46.06547 AT STATION: Kewaunee Met
+----> AVERAGE TEMPERATURE:  48.8937 AT STATION: Ludington
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: STURGEON POINT
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: TAWAS POINT
+----> AVERAGE TEMPERATURE:  44.175858 AT STATION: Benzonia
+----> AVERAGE TEMPERATURE:  39.81686 AT STATION: Cadillac
+----> AVERAGE TEMPERATURE:  45.692276 AT STATION: Ludington
+----> AVERAGE TEMPERATURE:  41.097073 AT STATION: Reed City
+----> AVERAGE TEMPERATURE:  -68.10956 AT STATION: Williamsburg
+----> AVERAGE TEMPERATURE:  38.927948 AT STATION: Waters
+----> AVERAGE TEMPERATURE:  40.070694 AT STATION: Grayling
+----> AVERAGE TEMPERATURE:  -70.90757 AT STATION: Houghton Lake
+----> AVERAGE TEMPERATURE:  40.767418 AT STATION: West Branch
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: H38A Maiden Rock
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: H39A Augusta
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: H40A Chili
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: H41A Junction City
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: H42A Shiocton
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: H43A Luxemburg
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: I39A Houston
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: I40A Norwalk
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: I41A Arkdale
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: I42A Ripon
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: I43A Elkhart Lake
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: J39A Decorah
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: J40A Soldiers Grove
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: J41A Loganville
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: J42A Columbus
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: J43A Hartford
+----> AVERAGE TEMPERATURE:  41.2 AT STATION: BALDWIN
+----> AVERAGE TEMPERATURE:  45.64706 AT STATION: NECEDAH
+----> AVERAGE TEMPERATURE:  41.82353 AT STATION: BARTON CITY
+----> AVERAGE TEMPERATURE:  44.507908 AT STATION: Bellaire: Antrim County Airport
+----> AVERAGE TEMPERATURE:  42.808372 AT STATION: Alma: Gratiot Community Airport
+----> AVERAGE TEMPERATURE:  45.24286 AT STATION: Appleton / Outagamie
+----> AVERAGE TEMPERATURE:  42.967438 AT STATION: Austin Municipal
+----> AVERAGE TEMPERATURE:  43.535 AT STATION: Wausau: Wausau Downtown Airport
+----> AVERAGE TEMPERATURE:  43.051167 AT STATION: Black River Fall
+----> AVERAGE TEMPERATURE:  47.07814 AT STATION: Middleton Municipal - Morey Field Airport
+----> AVERAGE TEMPERATURE:  40.259068 AT STATION: Cadillac / Wexford County
+----> AVERAGE TEMPERATURE:  45.31163 AT STATION: Charles City
+----> AVERAGE TEMPERATURE:  44.533028 AT STATION: Caro: Tuscola Area Airport
+----> AVERAGE TEMPERATURE:  43.051174 AT STATION: Sparta: Sparta / Fort McCoy Airport
+----> AVERAGE TEMPERATURE:  40.91818 AT STATION: Mosinee / Central Wisconsin
+----> AVERAGE TEMPERATURE:  -422.7953 AT STATION: Decorah
+----> AVERAGE TEMPERATURE:  43.789993 AT STATION: Baraboo: Baraboo Wisconsin Dells Airport
+----> AVERAGE TEMPERATURE:  42.93846 AT STATION: Eau Claire: Chippewa Valley Regional Airport
+----> AVERAGE TEMPERATURE:  46.487804 AT STATION: West Bend: West Bend Municipal Airport
+----> AVERAGE TEMPERATURE:  45.018604 AT STATION: Shawano Municipal Airport
+----> AVERAGE TEMPERATURE:  42.925583 AT STATION: Fremont Municipal Airport
+----> AVERAGE TEMPERATURE:  46.62605 AT STATION: Preston: Fillmore County Airport
+----> AVERAGE TEMPERATURE:  48.675713 AT STATION: Frankfort: Frankfort Dow Memorial Field Airport
+----> AVERAGE TEMPERATURE:  46.414997 AT STATION: Fond Du Lac: Fond Du Lac County Airport
+----> AVERAGE TEMPERATURE:  42.2014 AT STATION: Grayling: Grayling Army Airfield
+----> AVERAGE TEMPERATURE:  47.365456 AT STATION: Green Bay: Austin Straubel International Airport
+----> AVERAGE TEMPERATURE:  44.516277 AT STATION: Saginaw: Saginaw County H.W. Browne Airport
+----> AVERAGE TEMPERATURE:  42.502796 AT STATION: Jack Barstow: MI
+----> AVERAGE TEMPERATURE:  46.15454 AT STATION: Wisconsin Rapids: Alexander Field South Wood County Airport
+----> AVERAGE TEMPERATURE:  44.3028 AT STATION: Ludington: Mason County Airport
+----> AVERAGE TEMPERATURE:  48.265453 AT STATION: Lone Rock: Tri-County Regional Airport
+----> AVERAGE TEMPERATURE:  47.529087 AT STATION: La Crosse: La Crosse Municipal Airport
+----> AVERAGE TEMPERATURE:  42.67442 AT STATION: Menomonie: Menomonie Municipal Airport-Score Field
+----> AVERAGE TEMPERATURE:  -2466.0498 AT STATION: Manistee: Manistee County-Blacker Airport
+----> AVERAGE TEMPERATURE:  45.425 AT STATION: Saginaw: MBS International Airport
+----> AVERAGE TEMPERATURE:  43.798183 AT STATION: Marshfield: Marshfield Municipal Airport
+----> AVERAGE TEMPERATURE:  50.540005 AT STATION: Muskegon: Muskegon County Airport
+----> AVERAGE TEMPERATURE:  43.210236 AT STATION: Mount Pleasant: Mount Pleasant Municipal Airport
+----> AVERAGE TEMPERATURE:  48.08545 AT STATION: Madison: Dane County Regional-Truax Field
+----> AVERAGE TEMPERATURE:  -2745.639 AT STATION: Manitowoc: Manitowoc County Airport
+----> AVERAGE TEMPERATURE:  44.239998 AT STATION: Milwaukee / Timmerman
+----> AVERAGE TEMPERATURE:  44.809307 AT STATION: Winona: Winona Municipal Airport-Max Conrad Field
+----> AVERAGE TEMPERATURE:  43.365112 AT STATION: Oscoda: Oscoda-Wurtsmith Airport
+----> AVERAGE TEMPERATURE:  47.16909 AT STATION: Oshkosh: Wittman Regional Airport
+----> AVERAGE TEMPERATURE:  47.230774 AT STATION: Boscobel: Boscobel Airport
+----> AVERAGE TEMPERATURE:  45.186054 AT STATION: Waupaca: Waupaca Municipal Airport
+----> AVERAGE TEMPERATURE:  45.18605 AT STATION: Prairie Du Chien: Prairie Du Chien Municipal Airport
+----> AVERAGE TEMPERATURE:  44.68372 AT STATION: Red Wing: Red Wing Municipal Airport
+----> AVERAGE TEMPERATURE:  42.515354 AT STATION: Big Rapids: Roben-Hood Airport
+----> AVERAGE TEMPERATURE:  45.77692 AT STATION: Rochester: Rochester International Airport
+----> AVERAGE TEMPERATURE:  43.849266 AT STATION: Watertown
+----> AVERAGE TEMPERATURE:  49.165455 AT STATION: Sheboygan: Sheboygan County Memorial Airport
+----> AVERAGE TEMPERATURE:  41.668568 AT STATION: Stevens Point: Stevens Point Municipal Airport
+----> AVERAGE TEMPERATURE:  44.85 AT STATION: Sturgeon Bay
+----> AVERAGE TEMPERATURE:  42.883717 AT STATION: Dodge Center: Dodge Center Airport
+----> AVERAGE TEMPERATURE:  45.99091 AT STATION: Traverse City: Cherry Capital Airport
+----> AVERAGE TEMPERATURE:  42.718178 AT STATION: Waukesha: Waukesha County Airport
+----> AVERAGE TEMPERATURE:  43.357155 AT STATION: Juneau: Dodge County Airport
+----> AVERAGE TEMPERATURE:  45.755005 AT STATION: Volk / Camp Douglas
+----> AVERAGE TEMPERATURE:  46.207146 AT STATION: Wautoma: Wautoma Municipal Airport
+----> AVERAGE TEMPERATURE:  43.21861 AT STATION: Viroqua Municipal Airport
+----> AVERAGE TEMPERATURE:  45.240353 AT STATION: WJ9H Madison
+----> AVERAGE TEMPERATURE:  12.22691 AT STATION: K80D Harrison
+----> AVERAGE TEMPERATURE:  43.70086 AT STATION: KC0FOW Rochester
+----> AVERAGE TEMPERATURE:  49.19189 AT STATION: WB9BJQ Onalaska
+----> AVERAGE TEMPERATURE:  45.385532 AT STATION: N9UDO Baraboo
+----> AVERAGE TEMPERATURE:  44.90237 AT STATION: KE9LZ De Pere
+----> AVERAGE TEMPERATURE:  45.37899 AT STATION: N9QBW Eldorado
+----> AVERAGE TEMPERATURE:  44.37539 AT STATION: KG4ULP Mt. Pleasant
+----> AVERAGE TEMPERATURE:  40.292744 AT STATION: N8YZF Hersey
+----> AVERAGE TEMPERATURE:  46.46596 AT STATION: WX9EP-9 La Crosse
+----> AVERAGE TEMPERATURE:  44.12754 AT STATION: KC8YVF-1 Saginaw
+----> AVERAGE TEMPERATURE:  47.13844 AT STATION: AB8XS Spring Lake
+----> AVERAGE TEMPERATURE:  44.887665 AT STATION: N9DRW Middleton
+----> AVERAGE TEMPERATURE:  41.62001 AT STATION: N0FDH-1 Kasson
+----> AVERAGE TEMPERATURE:  43.973965 AT STATION: W9SBU Weyauwega
+----> AVERAGE TEMPERATURE:  42.933594 AT STATION: KL1PV Vasa
+----> AVERAGE TEMPERATURE:  42.15447 AT STATION: WX9TRS DeForest
+----> AVERAGE TEMPERATURE:  47.47571 AT STATION: KI8UM North Muskegon
+----> AVERAGE TEMPERATURE:  45.471237 AT STATION: N9PBY-2 Random Lake
+----> AVERAGE TEMPERATURE:  45.237404 AT STATION: KG9B-8 Plover
+----> AVERAGE TEMPERATURE:  48.10335 AT STATION: W8SWX Norton Shores
+----> AVERAGE TEMPERATURE:  43.3382 AT STATION: W8JBD Sanford
+----> AVERAGE TEMPERATURE:  45.101646 AT STATION: W9GP Watertown
+----> AVERAGE TEMPERATURE:  43.088974 AT STATION: DW8011 Stockton
+----> AVERAGE TEMPERATURE:  41.325565 AT STATION: DW8278 Roseville
+----> AVERAGE TEMPERATURE:  43.453342 AT STATION: DW9250 Auburn
+----> AVERAGE TEMPERATURE:  43.08251 AT STATION: DW9271 De Pere
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: Algoma City Marina
+----> AVERAGE TEMPERATURE:  48.951244 AT STATION: Sheboygan
+----> AVERAGE TEMPERATURE:  49.8921 AT STATION: BIG SABLE POINT AT LUDINGTON
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: KICKAPOO RIVER AT STEUBEN
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: YELLOW RIVER NEAR ION
+----> AVERAGE TEMPERATURE:  40.941177 AT STATION: ALGER
+----> AVERAGE TEMPERATURE:  46.235294 AT STATION: BOSCOBEL
+----> AVERAGE TEMPERATURE:  40.117645 AT STATION: MIO
+----> AVERAGE TEMPERATURE:  41.411766 AT STATION: SILVER CREEK
+----> AVERAGE TEMPERATURE:  44.7 AT STATION: WELLSTON
+----> AVERAGE TEMPERATURE:  43.55 AT STATION: Clintonville: Clintonville Municipal Airport
+----> AVERAGE TEMPERATURE:  44.084526 AT STATION: CW2125 Elsie
+----> AVERAGE TEMPERATURE:  44.784706 AT STATION: CW4000 Rockford
+----> AVERAGE TEMPERATURE:  44.444252 AT STATION: DW2020 Leland
+----> AVERAGE TEMPERATURE:  44.894997 AT STATION: DW5086 Town of Clayton
+----> AVERAGE TEMPERATURE:  49.02 AT STATION: DW6965 Flint
+----> AVERAGE TEMPERATURE:  44.19242 AT STATION: DW8098 Zumbro Falls
+----> AVERAGE TEMPERATURE:  45.37158 AT STATION: DW9448 Holmen
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: CEDAR RIVER NEAR AUSTIN 3S
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: UPPER IOWA RVR NR HIGHWAY 76 NR DORCHESTER 3S
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: FOND DU LAC ON LAKE WINNEBAGO
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: ROOT RIVER NEAR HOUSTON
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: MISSISSIPPI RIVER AT LA CROSSE
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: FOX RIVER AT FRITSE PARK- TOWN OF  MENASHA
+----> AVERAGE TEMPERATURE:  45.972828 AT STATION: SOUTH FORK ZUMBRO RVR
+----> AVERAGE TEMPERATURE:  43.539997 AT STATION: Belding
+----> AVERAGE TEMPERATURE:  40.780003 AT STATION: Bearlake
+----> AVERAGE TEMPERATURE:  43.34444 AT STATION: Benzonia
+----> AVERAGE TEMPERATURE:  42.775 AT STATION: Entrican
+----> AVERAGE TEMPERATURE:  45.92 AT STATION: Fairgrove
+----> AVERAGE TEMPERATURE:  44.350002 AT STATION: Freeland
+----> AVERAGE TEMPERATURE:  41.99 AT STATION: Fremont
+----> AVERAGE TEMPERATURE:  43.809998 AT STATION: Hart
+----> AVERAGE TEMPERATURE:  42.436363 AT STATION: Kewadin
+----> AVERAGE TEMPERATURE:  44.739998 AT STATION: Ludington
+----> AVERAGE TEMPERATURE:  44.085716 AT STATION: Linwood
+----> AVERAGE TEMPERATURE:  47.644444 AT STATION: Lapeer
+----> AVERAGE TEMPERATURE:  45.079998 AT STATION: Munger
+----> AVERAGE TEMPERATURE:  43.230003 AT STATION: Oldmission
+----> AVERAGE TEMPERATURE:  45.96 AT STATION: Pigeon
+----> AVERAGE TEMPERATURE:  46.586666 AT STATION: Richville
+----> AVERAGE TEMPERATURE:  43.559998 AT STATION: Sparta
+----> AVERAGE TEMPERATURE:  44.77 AT STATION: Casco/Luxemburg
+----> AVERAGE TEMPERATURE:  44.081818 AT STATION: Nasewaupee/Southern Door County
+----> AVERAGE TEMPERATURE:  43.64621 AT STATION: CRN SITE NEAR NECEDAH 5WNW
+----> AVERAGE TEMPERATURE:  46.0 AT STATION: AUGUSTA
+----> AVERAGE TEMPERATURE:  46.52381 AT STATION: BLACK RIVER FALLS
+----> AVERAGE TEMPERATURE:  45.454544 AT STATION: DODGEVILLE
+----> AVERAGE TEMPERATURE:  39.0 AT STATION: GRAYLING
+----> AVERAGE TEMPERATURE:  43.0 AT STATION: KESHENA
+----> AVERAGE TEMPERATURE:  39.272728 AT STATION: LEOTA
+----> AVERAGE TEMPERATURE:  43.727272 AT STATION: Mead
+----> AVERAGE TEMPERATURE:  40.090908 AT STATION: MANTON
+----> AVERAGE TEMPERATURE:  43.636364 AT STATION: ROME (SARATOGA)
+----> AVERAGE TEMPERATURE:  45.090908 AT STATION: PARDEEVILLE
+----> AVERAGE TEMPERATURE:  43.090908 AT STATION: BEAR
+----> AVERAGE TEMPERATURE:  42.636364 AT STATION: WAUTOMA
+----> AVERAGE TEMPERATURE:  44.272728 AT STATION: YELLOW RIVER STATE FOREST
+----> AVERAGE TEMPERATURE:  42.235455 AT STATION: Houghton Lake: Roscommon County Airport
+----> AVERAGE TEMPERATURE:  46.02 AT STATION: K42C White Cloud
+----> AVERAGE TEMPERATURE:  49.045013 AT STATION: DW2963 Whitehall
+----> AVERAGE TEMPERATURE:  42.608246 AT STATION: DW3191 Linwood
+----> AVERAGE TEMPERATURE:  44.502766 AT STATION: DW6814 Grafton
+----> AVERAGE TEMPERATURE:  41.098957 AT STATION: DW7310 Stewartville
+----> AVERAGE TEMPERATURE:  42.71698 AT STATION: DW8096 Mazeppa
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: SOUTH FORK ROOT RIVER NEAR LANESBORO
+----> AVERAGE TEMPERATURE:  42.5 AT STATION: Grand Marsh
+----> AVERAGE TEMPERATURE:  47.27642 AT STATION: KD8CMK Norton Shores
+----> AVERAGE TEMPERATURE:  45.950005 AT STATION: Sturgeon Bay
+----> AVERAGE TEMPERATURE:  43.205193 AT STATION: KC9AVZ Jackson
+----> AVERAGE TEMPERATURE:  40.636364 AT STATION: Rusk
+----> AVERAGE TEMPERATURE:  43.492233 AT STATION: CW4445 West Bend
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: BIG SOUIX RIVER AT DELL RAPIDS 2SW
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: MISSISSIPPI RIVER POOL AT LAKE CITY
+----> AVERAGE TEMPERATURE:  45.124 AT STATION: COLUMBUS
+----> AVERAGE TEMPERATURE:  47.032 AT STATION: MADISON EAST
+----> AVERAGE TEMPERATURE:  -9999.0 AT STATION: LACROSSE DOT
+----> AVERAGE TEMPERATURE:  43.575996 AT STATION: MANITOWOC
+----> AVERAGE TEMPERATURE:  42.1 AT STATION: LAKE DUBAY
+----> AVERAGE TEMPERATURE:  48.795998 AT STATION: MILWAUKEE 16TH ST
+----> AVERAGE TEMPERATURE:  49.732002 AT STATION: MILWAUKEE SER DNR
+----> AVERAGE TEMPERATURE:  46.906 AT STATION: GRAFTON
+----> AVERAGE TEMPERATURE:  43.468 AT STATION: HARRINGTON BCH
+----> AVERAGE TEMPERATURE:  42.676 AT STATION: Devils Lake
+----> AVERAGE TEMPERATURE:  44.584 AT STATION: SHEBOYGAN
+----> AVERAGE TEMPERATURE:  46.816 AT STATION: WAUKESHA - CLEVELAND AVE
+----> AVERAGE TEMPERATURE:  44.836002 AT STATION: Horicon Wildlife Area
+----> AVERAGE TEMPERATURE:  42.8 AT STATION: HORICON
+----> AVERAGE TEMPERATURE:  41.614353 AT STATION: DW1045 Newaygo
+----> AVERAGE TEMPERATURE:  43.776466 AT STATION: Elkrapids
+----> AVERAGE TEMPERATURE:  41.98876 AT STATION: DW9148 Saukville
+----> AVERAGE TEMPERATURE:  39.58 AT STATION: Hoxeyville
+----> AVERAGE TEMPERATURE:  47.520004 AT STATION: KC9GJD-3 Port Washington
+----> AVERAGE TEMPERATURE:  41.29 AT STATION: Unionville
+----> AVERAGE TEMPERATURE:  -7127.5146 AT STATION: N9NMH West Wausau
+----> AVERAGE TEMPERATURE:  51.12346 AT STATION: KC8LBZ-11 Norton Shores
+----> AVERAGE TEMPERATURE:  42.901367 AT STATION: CW7298 Downsville
+----> AVERAGE TEMPERATURE:  43.853344 AT STATION: DW4337 West Bend
+----> AVERAGE TEMPERATURE:  41.128708 AT STATION: DW5436 Ontario
+----> AVERAGE TEMPERATURE:  39.4922 AT STATION: New Hampton (US-18)
+----> AVERAGE TEMPERATURE:  43.93305 AT STATION: KC9MKP River Falls
+----> AVERAGE TEMPERATURE:  37.177895 AT STATION: DW0836 Frederic
+----> AVERAGE TEMPERATURE:  43.48 AT STATION: Nwmhrs
+----> AVERAGE TEMPERATURE:  40.52 AT STATION: DW0703 Grattan
+----> AVERAGE TEMPERATURE:  40.02 AT STATION: DW2824 Caro
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Stevens Point - I-39  STH 66
+----> AVERAGE TEMPERATURE:  NaN AT STATION: MUSKEGON
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW9513 Nelson
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Muskegon Coast Guard Station
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Wausau - I-39 at Rib River
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Lake DuBay - I-39  CTH C
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW0913 New London
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW4812 Sherwood
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EW0512 Milwaukee
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW3245 Pierson
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EW0486 Lake City
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Menomonie: Menomonie Municipal Airport-Score Field
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Essexville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW3641 Madison
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW2644 Stevens Point
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Waukesha - I-94  STH 164
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW6959 Sussex
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Sheboygan Coast Guard Station
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KC9BWF-3 Green Bay
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KB9JJD Montello
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5426 Montague
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW3389 Sparta
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Appleton
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EW0144 Galesville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KF9X Port Edwards
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DODGEVILLE
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N9OEW Friendship
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1887 St. Louis
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Central Green Bay
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Preston: Fillmore County Airport
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KD8IOK Birch Run
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KC8YHQ-5 Sanford
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Ludington Coast Guard Station
+----> AVERAGE TEMPERATURE:  NaN AT STATION: SCOTTVILLE
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KC8YHQ Sanford
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW7529 Mosinee
+----> AVERAGE TEMPERATURE:  NaN AT STATION: W9RPM La Crosse
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Mt. Sterling - STH 27 1 mi S Mt Strling
+----> AVERAGE TEMPERATURE:  NaN AT STATION: MILWAUKEE UW-N
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Saginaw
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1570 Lanesboro
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Buoy 45161
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Stanley - STH 29  CTH H
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Cedarburg - I-43  CTH Q
+----> AVERAGE TEMPERATURE:  NaN AT STATION: ROME (SARATOGA)
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Eau Claire - I-94  USH 53
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N0EST Rochester
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW7874 Pine Island
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Arlene
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW3851 Comstock Park
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EW0943 West Bend
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW2261 Muskegon
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW8207 Friendship
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW5245 Fond du Lac
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Buoy 5272
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EW0269 Wellston
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW6865 Praag
+----> AVERAGE TEMPERATURE:  NaN AT STATION: WA9YVE Ixonia
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW3804 Bay City
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Saginaw Bay
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KC8HJN Ludington
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW3629 West Bend
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Cadillac
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW4732 Sturgeon Bay
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Milwaukee Northwest - USH 45  Mill Rd.
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N9WBR Amherst Jct.
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW8650 Cedar Springs
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N0HZN Rochester
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW9762 Westby
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5133 Caseville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: La Crosse - I-90 French Island
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1531 Burr Oak
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1650 Traverse City
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW4731 Augusta
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Saginaw Bay
+----> AVERAGE TEMPERATURE:  NaN AT STATION: MIO
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW3810 Grand Haven
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Frankfort Coast Guard Station
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW9466 Prudenville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW7422 Jackson
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Coloma - I-39  Czech Ave.
+----> AVERAGE TEMPERATURE:  NaN AT STATION: GRAYLING
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KB9KTD-1 Onalaska
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Abbotsford - STH 29 3 mi E of Abbotsfrd
+----> AVERAGE TEMPERATURE:  NaN AT STATION: AB8CY Scottville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW1335 Allenton
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Alma
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW6958 Auburn
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KC9AAG Fond Du Lac
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Sanford
+----> AVERAGE TEMPERATURE:  NaN AT STATION: MIO
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Milwaukee NE - I-43  County Line Rd.
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW2151 Honor
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW3512 Frank from Mancelona
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW0859 Sanford
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW4245 Rock Falls
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Tomah - I-94  USH 12
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW1930 Kendall
+----> AVERAGE TEMPERATURE:  NaN AT STATION: W9YYZ-1 Harmony Grove
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW1954 Gaylord
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Buoy 2417
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW8599 Lannon
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1565 Chatfield
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N0ZOD Spring Valley
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW2708 Mequon
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KA7CFM Monona
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1467 Belding
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Knapp - I-94  CTH Q
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW6315 Newburg
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N3WJF-2 Ravenna
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Prairie du Chien - USH 18  Miss. River
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KC04 Oceana
+----> AVERAGE TEMPERATURE:  NaN AT STATION: BLACK RIVER FALLS
+----> AVERAGE TEMPERATURE:  NaN AT STATION: K9C8 Evart
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW7743 Alma
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW0888 Kaukauna
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EW0646 Germantown
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW9265 Hartford
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EVANS
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW1583 Prairie du Chien
+----> AVERAGE TEMPERATURE:  NaN AT STATION: W8WPD Whitehall
+----> AVERAGE TEMPERATURE:  NaN AT STATION: K7D3 Baldwin
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5936 N. Muskegon
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Mauston - I-90/94  STH 80
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Jackson Pass - I-90  1 mi. W of CTH M
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW0098 Oxford
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW4210 Bay City
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW2387 Belding
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW3748 Manistee
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW8298 Mount Pleasant
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW1200 Madison
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1519 Morley
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Buoy 45021
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Montello - I-39 at STH 23 East
+----> AVERAGE TEMPERATURE:  NaN AT STATION: HOUGHTON LAKE
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Ithaca
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N9ZWY-2 Prairie Du Chien
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N8AVR Shields
+----> AVERAGE TEMPERATURE:  NaN AT STATION: K9AEG Wittenberg
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EW0826 Vesper
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW0351 Waters
+----> AVERAGE TEMPERATURE:  NaN AT STATION: W9TKO Sheboygan
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Menasha - USH 41  STH 441
+----> AVERAGE TEMPERATURE:  NaN AT STATION: I38A Eyota
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KB8PKV Lapeer
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW2893 Flint
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Neenah
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Fond du Lac - USH 41  CTH F
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EW0200 Lodi
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW4287 Belgium
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW6562 Green Bay
+----> AVERAGE TEMPERATURE:  NaN AT STATION: River Falls - STH 35  Glover Ln.
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KC8LCP-10 Grand Haven
+----> AVERAGE TEMPERATURE:  NaN AT STATION: MANTON
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Waukesha
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Milwaukee Downtown - I-894 Hoan Bridge
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Blue River
+----> AVERAGE TEMPERATURE:  NaN AT STATION: SLINGER
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Green Bay - I-43  STH 172
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW3099 Postville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5267 Muskegon
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW4409 Auburndale
+----> AVERAGE TEMPERATURE:  NaN AT STATION: WD9HXC Wisconsin Dells
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Lapeer Dupont-lapeer
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Sturgeon Bay
+----> AVERAGE TEMPERATURE:  NaN AT STATION: GAYLORD
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N9QIP Arlington
+----> AVERAGE TEMPERATURE:  NaN AT STATION: AB9FT-10 Sheboygan
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Montello - I-39  STH 23 East
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1610 Richland Center
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KC9CI Germantown
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Caro: Tuscola Area Airport
+----> AVERAGE TEMPERATURE:  NaN AT STATION: New Hampton
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1027 Rollingstone
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EW0729 Rochester
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW8483 Shelby
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1794 Middleton
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KESHENA
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW1364 Waukesha
+----> AVERAGE TEMPERATURE:  NaN AT STATION: BALDWIN
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1387 Brown City
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5195 Oshkosh
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW0729 Westby
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW2272 Lansing
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Black River Falls - I-94  Sandcut Hill
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N0QK Winona
+----> AVERAGE TEMPERATURE:  NaN AT STATION: BAY CITY
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW6357 Viroqua
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW7541 West Bend
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Canton US-52 MP 2
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Red Wings
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW6921 West Bend
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KB9AED New Lisbon
+----> AVERAGE TEMPERATURE:  NaN AT STATION: AB8LE Belding
+----> AVERAGE TEMPERATURE:  NaN AT STATION: AUGUSTA
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Pittsville - STH 13  STH 80
+----> AVERAGE TEMPERATURE:  NaN AT STATION: WA9KCU Watertown
+----> AVERAGE TEMPERATURE:  NaN AT STATION: WAUTOMA
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW9037 Richland Center
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N9ISN Chippewa Falls
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Buoy 45013
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Saginaw
+----> AVERAGE TEMPERATURE:  NaN AT STATION: WX9ARX La Crosse
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KB0VYO-12 Winona
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW7018 Traverse City
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW7936 Rio
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW0564 Ontario
+----> AVERAGE TEMPERATURE:  NaN AT STATION: GBLW3
+----> AVERAGE TEMPERATURE:  NaN AT STATION: OTISVILLE
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW4288 La Crosse
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW9240 Belding
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Sheboygan - I-43  Superior Ave.
+----> AVERAGE TEMPERATURE:  NaN AT STATION: K0NY Winona
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW0194 Neillsville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Charles City
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Green Bay
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Grayling: Grayling AAF Airport
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Sturgeon Bay
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Buoy 0030
+----> AVERAGE TEMPERATURE:  NaN AT STATION: K13C Lakeview
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KD8AZK Grand Rapids
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KB8UNF Twin Lake
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KC0IKU La Crescent
+----> AVERAGE TEMPERATURE:  NaN AT STATION: BEAR
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Ludington
+----> AVERAGE TEMPERATURE:  NaN AT STATION: AA0SM Rochester
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Rochester/St. Marys Hospital Heliport
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW6258 Plover
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Madison - USH 12/18  Mud Lake
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5718 Saginaw
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Frankfort: Frankfort Dow Memorial Field Airport
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW4026 Cannon Falls
+----> AVERAGE TEMPERATURE:  NaN AT STATION: MILW HAVENWOODS
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Tawas Point Coast Guard Station
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Buoy 3972
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5744 Greenville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW1229 Appleton
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Saginaw River Coast Guard Station
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Milwaukee Coast Guard Light Station
+----> AVERAGE TEMPERATURE:  NaN AT STATION: NECEDAH
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Chippewa Falls WX Svc  Chippewa Fall
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KC0IKU-1 La Crescent
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Buoy 4647
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW1982 Gaylord
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Two Rivers Coast Guard Station
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Lake Elmo Airport
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KB9VSQ Reedsburg
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Buoy 45020
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW9394 Saginaw
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Milwaukee
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW4785 Saint Paul Park
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Oakdale
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW3028 Rochester
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Portage - I-90/94  Wisconsin River
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW4447 Auburn
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Graying Air Force Range
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Arcadia - STH 93
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW9738 Comstock Park
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW8933 La Crosse
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW0932 Elma
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW2092 Milwaukee
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5974 New Hampton
+----> AVERAGE TEMPERATURE:  NaN AT STATION: WILDCAT MTN
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N8XD Freeland
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW7793 Oconomowoc
+----> AVERAGE TEMPERATURE:  NaN AT STATION: K0NY-2 Winona
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW8696 Grafton
+----> AVERAGE TEMPERATURE:  NaN AT STATION: FLINT
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW4644 Grand Haven
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW6301 Campbellsport
+----> AVERAGE TEMPERATURE:  NaN AT STATION: PARDEEVILLE
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Beaver Dam - USH 151  Railroad Bridge
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Jackson - USH 45  STH 60
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW0737 Breckenridge
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N0OWP Winona
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N3WJF-3 Spring Lake
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW8531 Kent City
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Gaylord
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5412 Oshkosh
+----> AVERAGE TEMPERATURE:  NaN AT STATION: EW0768 Barneveld
+----> AVERAGE TEMPERATURE:  NaN AT STATION: N9YWZ Kimberly
+----> AVERAGE TEMPERATURE:  NaN AT STATION: K47G Carson City
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Mequon
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5734 Madison
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW0938 Neillsville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Mount Pleasant
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Alpena
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW4208 Hortonville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DODGE CENTER
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW2389 Walker
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5727 Rochester
+----> AVERAGE TEMPERATURE:  NaN AT STATION: MANISTEE
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW7461 Mount Horeb
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5790 Grand Rapids
+----> AVERAGE TEMPERATURE:  NaN AT STATION: J38A Riceville
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW4961 Green Bay
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Point Betsie / Frankfort
+----> AVERAGE TEMPERATURE:  NaN AT STATION: WX9GRB-1 Green Bay Harbor
+----> AVERAGE TEMPERATURE:  NaN AT STATION: KB9TPG Viroqua
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CW5653 Grand Haven
+----> AVERAGE TEMPERATURE:  NaN AT STATION: DW9450 Sheboygan
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Gravelly Shoals Light
+----> AVERAGE TEMPERATURE:  NaN AT STATION: CADOTT
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Hudson - I-94  St. Croix River
+----> AVERAGE TEMPERATURE:  NaN AT STATION: Johnson Creek - I-94  CTH Y
+
+-----------------------------------------------------
+Hibernate: select this_.id as id4_1_, this_.elevation as elevation4_1_, this_.latitude as latitude4_1_, this_.longitude as longitude4_1_, this_.name as name4_1_, this_.network as network4_1_, this_.sec_id as sec7_4_1_, this_.country as country4_1_, this_.state as state4_1_, this_.status as status4_1_, wdatas2_.station as station4_3_, wdatas2_.date as date5_3_, wdatas2_.station as station5_3_, wdatas2_.time as time5_3_, wdatas2_.date as date5_0_, wdatas2_.station as station5_0_, wdatas2_.time as time5_0_, wdatas2_.alti as alti5_0_, wdatas2_.drct as drct5_0_, wdatas2_.dwpf as dwpf5_0_, wdatas2_.gust as gust5_0_, wdatas2_.network as network5_0_, wdatas2_.p24i as p9_5_0_, wdatas2_.pmsl as pmsl5_0_, wdatas2_.relh as relh5_0_, wdatas2_.sknt as sknt5_0_, wdatas2_.tmpf as tmpf5_0_, wdatas2_.wthr as wthr5_0_ from station this_ left outer join wdata wdatas2_ on this_.id=wdatas2_.station where wdatas2_.date = 20121004 and wdatas2_.tmpf > -99
+Results Found ---> 5
+----> AT STATION: VTWIL, I-89 Williston  AVERAGE TEMPERATURE:  65.3
+----> AT STATION: WSM21, ABC-1  AVERAGE TEMPERATURE:  88.57667
+----> AT STATION: EPRIN, Prineville/Davidson Park  AVERAGE TEMPERATURE:  41.42857
+----> AT STATION: E3CAR, Carus/Spangler Rd  AVERAGE TEMPERATURE:  61.384617
+----> AT STATION: MDKY, Dickey Lake US-93 MP 160.2  AVERAGE TEMPERATURE:  25.0
+
+-----------------------------------------------------
+Hibernate: select this_.id as id4_1_, this_.elevation as elevation4_1_, this_.latitude as latitude4_1_, this_.longitude as longitude4_1_, this_.name as name4_1_, this_.network as network4_1_, this_.sec_id as sec7_4_1_, this_.country as country4_1_, this_.state as state4_1_, this_.status as status4_1_, wdatas2_.station as station4_3_, wdatas2_.date as date5_3_, wdatas2_.station as station5_3_, wdatas2_.time as time5_3_, wdatas2_.date as date5_0_, wdatas2_.station as station5_0_, wdatas2_.time as time5_0_, wdatas2_.alti as alti5_0_, wdatas2_.drct as drct5_0_, wdatas2_.dwpf as dwpf5_0_, wdatas2_.gust as gust5_0_, wdatas2_.network as network5_0_, wdatas2_.p24i as p9_5_0_, wdatas2_.pmsl as pmsl5_0_, wdatas2_.relh as relh5_0_, wdatas2_.sknt as sknt5_0_, wdatas2_.tmpf as tmpf5_0_, wdatas2_.wthr as wthr5_0_ from station this_ left outer join wdata wdatas2_ on this_.id=wdatas2_.station where wdatas2_.date = 20121004 and wdatas2_.tmpf > -99
+Results Found ---> 5
+----> AT STATION: VTWIL, I-89 Williston  MINIMUM TEMPERATURE:  65.3
+----> AT STATION: WSM21, ABC-1  MINIMUM TEMPERATURE:  87.37
+----> AT STATION: EPRIN, Prineville/Davidson Park  MINIMUM TEMPERATURE:  27.0
+----> AT STATION: E3CAR, Carus/Spangler Rd  MINIMUM TEMPERATURE:  52.0
+----> AT STATION: MDKY, Dickey Lake US-93 MP 160.2  MINIMUM TEMPERATURE:  25.0
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

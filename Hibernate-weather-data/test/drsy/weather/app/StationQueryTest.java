@@ -1,6 +1,5 @@
 package drsy.weather.app;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -191,7 +190,7 @@ public class StationQueryTest {
 	public void testminimumStationdatathroughdate() {
 		testQuery ppl = new testQuery();
 		int date = 20121004;
-		float temp = 0, min = 0;
+		float temp = 0;
 		List<Station> list = ppl.getStationsonDate(date);
 		Assert.assertNotNull(list);
 		System.out.println("Results Found ---> " + list.size());
