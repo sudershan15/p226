@@ -114,6 +114,42 @@ public class testQuery {
 		return r;	
 	}
 
+	public List<Station> findNetworks(int network) {
+		ArrayList<Station> r = null;
+
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery("from Station as s where s.network = :network");
+			query.setDouble("network", network);
+			Set<Station> set = new LinkedHashSet<Station>(query.list());
+			r = new ArrayList<Station>(set);
+			session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return r;
+	}
+	
+	public List<Station> findNetworks(Station template) {
+		ArrayList<Station> r = null;
+
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+			Criteria c = session.createCriteria(Station.class);
+			c.setFetchMode("wdata", FetchMode.JOIN);
+			c.add(Restrictions.eq("network", template.getNetwork()));
+			Set<Station> set = new LinkedHashSet<Station>(c.list());
+			r = new ArrayList<Station>(set);
+			session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return r;
+	}
 	
 	/**
 	 * here we use a class to act as a template for what we are searching for.
@@ -277,32 +313,6 @@ public class testQuery {
 			//c.add(Restrictions.eq("sskey.country", "US"));
 			Set<Station> set = new LinkedHashSet<Station>(c.list());
 			r = new ArrayList<Station>(set);
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
-		return r;
-	}
-	
-	public ArrayList<Wdata> averageTemperature(WdataKey key) {
-		if(key == null) {
-			return null;
-		}
-		
-		ArrayList<Wdata> r =  null;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			//Station s = find(id);
-			Query query = session.createQuery("select new drsy.weather.app.Count(p.tmpf) from Wdata as p where p.station = :station and p.date = :date");
-			query.setInteger("date", key.getDate());
-			query.setString("station", key.getStation());
-
-			// the join creates duplicate records - this will remove them
-			Set<Wdata> set = new LinkedHashSet<Wdata>(query.list());
-			r = new ArrayList<Wdata>(set);
 			session.getTransaction().commit();
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
