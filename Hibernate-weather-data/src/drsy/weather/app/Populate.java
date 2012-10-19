@@ -1,48 +1,39 @@
 package drsy.weather.app;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
-import drsy.weather.data.Network;
-import drsy.weather.util.HibernateUtil;
-import drsy.weather.util.getppl;
 
 public class Populate extends testQuery {
 
 	public static void main(String[] args) {
-		System.out.println("Loading data to pplhib");
-		getppl gen = new getppl();
-		int id = 123;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		Transaction tx = session.beginTransaction();
-		Network p = gen.getCountry(id);
-		session.save(p);
+		System.out.println("Loading data to pplann");
+		Populate p = new Populate();
+		//p.bulkGenerate(5);
 	}
 
-	/*public void bulkGenerate(int count, String...i1d) {
-        String id = i1d.toString();
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		try {
-			getppl gen = new getppl();
-			Transaction tx = session.beginTransaction();
-			for (int n = 0; n < count; n++) {
-				
-				Country p = gen.getCountry(id);
+	public Populate() {
+		super();
+
+		if (locator == null)
+			throw new RuntimeException("Missing locator");
+	}
+
+	/*public void bulkGenerate(int count) {
+		getppl gen = new getppl();
+		for (int n = 0; n < count; n++) {
+			Station p = gen.createStation();
+			System.out.println("--> creating: " + p);
+			Session session = locator.locate(p.getLastName());
+			try {
+				Transaction tx = session.beginTransaction();
 				session.save(p);
 				if (n % 100 == 0) {
 					session.flush();
 					session.clear();
 				}
+
+				tx.commit();
+			} finally {
+				// session.close();
 			}
-			
-			for ( int n = 0 ;n < 5 ; n++){
-				Country fm = new Country();
-				session.save(fm);
-			}
-			
-			tx.commit();
-		} finally {
-			// session.close();
 		}
 	}*/
 }

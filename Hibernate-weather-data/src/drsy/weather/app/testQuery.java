@@ -10,24 +10,29 @@ import org.hibernate.FetchMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.stat.EntityStatistics;
-import org.hibernate.stat.Statistics;
 
-import drsy.weather.data.Country;
 import drsy.weather.data.Network;
 import drsy.weather.data.Station;
 import drsy.weather.data.Wdata;
 import drsy.weather.data.WdataKey;
-import drsy.weather.util.HibernateUtil;
 
 public class testQuery {
 
+	protected LocationHash locator;
+
+	public testQuery() {
+		// TODO node names, and number of shards (nodes) should be obtained from
+		// a config file
+		locator = new LocationHash(2);
+	}
+	
 	public Network find(int id) {
 		if (id == 0)
 			return null;
 
 		Network r = null;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 			r = (Network) session.load(Network.class, id);
@@ -42,6 +47,7 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;
 	}
 
@@ -50,7 +56,8 @@ public class testQuery {
 			return null;
 
 		Station r = null;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 			r = (Station) session.load(Station.class, id);
@@ -65,6 +72,7 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;
 	}
 
@@ -73,7 +81,8 @@ public class testQuery {
 			return null;
 
 		Wdata r = null;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 			r = (Wdata) session.load(Wdata.class, id);
@@ -88,6 +97,7 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;
 	}
 	
@@ -96,7 +106,8 @@ public class testQuery {
 			return null;
 
 		List<Wdata> r = null;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 			Query query = session.createQuery("from Wdata as p where p.alti = :alti");
@@ -111,13 +122,14 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;	
 	}
 
 	public List<Station> findNetworks(int network) {
 		ArrayList<Station> r = null;
-
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 			Query query = session.createQuery("from Station as s where s.network = :network");
@@ -129,13 +141,14 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;
 	}
 	
 	public List<Station> findNetworks(Station template) {
 		ArrayList<Station> r = null;
-
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 			Criteria c = session.createCriteria(Station.class);
@@ -147,6 +160,7 @@ public class testQuery {
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
 			throw e;
+		}
 		}
 		return r;
 	}
@@ -163,8 +177,8 @@ public class testQuery {
 	@SuppressWarnings("unchecked")
 	public List<Station> find(Station template) {
 		ArrayList<Station> r = null;
-
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 
@@ -203,13 +217,14 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;
 	}
 
 	public List<Station> getStation(Station template) {
 		ArrayList<Station> r = null;
-
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 
@@ -224,13 +239,14 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;
 	}
 	
 	public List<Station> countStations(String country) {
 		ArrayList<Station> r = null;
-
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 
@@ -245,14 +261,15 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;
 	}
 	
 	
 	public List<Station> getDataonDate(int date, String state) {
 		ArrayList<Station> r = null;
-
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 
@@ -271,13 +288,14 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;
 	}
 	
 	public List<Station> getStationsbetweenlatnlon(float lat1, float lat2, float lon1, float lon2) {
 		ArrayList<Station> r = null;
-
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 
@@ -293,13 +311,14 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;
 	}
 	
 	public List<Station> getStationsonDate(int date) {
 		ArrayList<Station> r = null;
-
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session[] slist = locator.allLocations();
+		for (Session session : slist) {
 		try {
 			session.beginTransaction();
 
@@ -318,25 +337,15 @@ public class testQuery {
 			session.getTransaction().rollback();
 			throw e;
 		}
+		}
 		return r;
 	}
 	
-	public void showStats() {
-		try {
-			Statistics stats = HibernateUtil.getSessionFactory().getStatistics();
-			double queryCacheHitCount = stats.getQueryCacheHitCount();
-			double queryCacheMissCount = stats.getQueryCacheMissCount();
-			double queryCacheHitRatio = queryCacheHitCount / (queryCacheHitCount + queryCacheMissCount);
-			System.out.println("--> Query Hit ratio: " + queryCacheHitRatio);
+	protected boolean validate(Station p) {
+		if (p == null)
+			return false;
 
-			System.out.println("--> TX count: " + stats.getTransactionCount());
-
-			EntityStatistics entityStats = stats.getEntityStatistics(Country.class.getName());
-			long changes = entityStats.getInsertCount() + entityStats.getUpdateCount() + entityStats.getDeleteCount();
-			System.out.println("--> " + Country.class.getName() + " changed " + changes + " times");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		// TODO validate values
+		return true;
 	}
 }

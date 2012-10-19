@@ -45,7 +45,6 @@ public class CacheQueryTest {
 		System.out.println("    first: " + (fet - fst) + " msec, " + (fcount / (fet - fst)) + " rec/msec");
 		System.out.println("    after: " + ((et - st) / (N - 1)) + " msec, " + (count / (et - st)) + " rec/msec\n\n");
 		
-		ppl.showStats();
 	}
 	
 	@Test
@@ -71,6 +70,5 @@ public class CacheQueryTest {
 				.println("\nquery performance test Station without fetching wdata (new Criteria, no cache), " + (count + fcount) + " records in " + (et - fst) + " msec");
 		System.out.println("first: " + (fet - fst) + " msec, " + (fcount / (fet - fst)) + " rec/msec");
 		System.out.println("after: " + ((et - st) / (N - 1)) + " msec, " + (count / (et - st)) + " rec/msec\n");
-		ppl.showStats();
 	}
 }

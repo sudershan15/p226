@@ -1,0 +1,24 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence"
+	version="1.0">
+	<persistence-unit name="testquery"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>Station</class>
+		<class>Wdata</class>
+		<class>State</class>
+		<class>Param</class>
+		<class>Network</class>
+		<class>Country</class>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.connection.username" value="gash" />
+			<property name="hibernate.connection.password" value="gash" />
+			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/p226_v1" />
+			<property name="hibernate.max_fetch_depth" value="3" />
+		</properties>
+	</persistence-unit>
+</persistence>
