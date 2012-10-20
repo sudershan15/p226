@@ -2,12 +2,14 @@ package drsy.weather.data;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "station_provider")
 public class StationProvider {
 	
+	@Id
 	@Embedded
 	StationProviderKey key;
 
