@@ -111,11 +111,11 @@
 			<classpath refid="project.classpath" />
 		</java>
 	</target>
-<!--
+
 	<target name="load" depends="build">
-		<java fork="yes" classname="gash.hibernate.app.Populate">
+		<java fork="yes" classname="drsy.weather.app.Populate">
 			<classpath refid="project.classpath" />
 		</java>
 	</target>
--->
+
 </project>

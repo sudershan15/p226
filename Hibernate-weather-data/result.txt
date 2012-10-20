@@ -1,67 +1,65 @@
 Testsuite: drsy.weather.app.StationQueryTest
-Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 41.562 sec
+Tests run: 10, Failures: 0, Errors: 2, Time elapsed: 29.821 sec
 ------------- Standard Output ---------------
 
 -----------------------------------------------------
-11:10:52,739 DEBUG logging:176 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-11:10:54,234  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.WdataKey
-11:10:54,236  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.WdataKey
-11:10:54,240  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.StateId
-11:10:54,242  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.StateId
-11:10:54,248  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.StationProviderKey
-11:10:54,250  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.StationProviderKey
-11:10:56,342  INFO SchemaValidator:137 - HHH000229: Running schema validator
-11:10:56,344  INFO SchemaValidator:145 - HHH000102: Fetching database metadata
-11:10:56,406  INFO TableMetadata:65 - HHH000261: Table found: public.country
-11:10:56,408  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
-11:10:56,445  INFO TableMetadata:65 - HHH000261: Table found: public.network
-11:10:56,447  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
-11:10:56,477  INFO TableMetadata:65 - HHH000261: Table found: public.param
-11:10:56,478  INFO TableMetadata:66 - HHH000037: Columns: [id, eunits, descrip, munits]
-11:10:56,506  INFO TableMetadata:65 - HHH000261: Table found: public.provider
-11:10:56,508  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
-11:10:56,536  INFO TableMetadata:65 - HHH000261: Table found: public.state
-11:10:56,538  INFO TableMetadata:66 - HHH000037: Columns: [id, name, country_id]
-11:10:56,571  INFO TableMetadata:65 - HHH000261: Table found: public.station
-11:10:56,572  INFO TableMetadata:66 - HHH000037: Columns: [id, sec_id, status, elevation, name, state, longitude, latitude, network, country]
-11:10:56,601  INFO TableMetadata:65 - HHH000261: Table found: public.station_provider
-11:10:56,602  INFO TableMetadata:66 - HHH000037: Columns: [station, provider, type]
-11:10:56,639  INFO TableMetadata:65 - HHH000261: Table found: public.wdata
-11:10:56,640  INFO TableMetadata:66 - HHH000037: Columns: [gust, station, elev, drct, dwpf, date, long, network, relh, time, p24i, wthr, alti, tmpf, sknt, pmsl, lat]
-11:10:56,801  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.WdataKey
-11:10:56,803  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.WdataKey
-11:10:56,804  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.StateId
-11:10:56,805  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.StateId
-11:10:57,742  INFO SchemaValidator:137 - HHH000229: Running schema validator
-11:10:57,744  INFO SchemaValidator:145 - HHH000102: Fetching database metadata
-11:10:57,801  INFO TableMetadata:65 - HHH000261: Table found: public.country
-11:10:57,802  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
-11:10:57,826  INFO TableMetadata:65 - HHH000261: Table found: public.network
-11:10:57,828  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
-11:10:57,854  INFO TableMetadata:65 - HHH000261: Table found: public.param
-11:10:57,856  INFO TableMetadata:66 - HHH000037: Columns: [id, eunits, descrip, munits]
-11:10:57,875  INFO TableMetadata:65 - HHH000261: Table found: public.provider
-11:10:57,876  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
-11:10:57,901  INFO TableMetadata:65 - HHH000261: Table found: public.state
-11:10:57,902  INFO TableMetadata:66 - HHH000037: Columns: [id, name, country_id]
-11:10:57,921  INFO TableMetadata:65 - HHH000261: Table found: public.station
-11:10:57,922  INFO TableMetadata:66 - HHH000037: Columns: [id, sec_id, status, elevation, name, state, longitude, latitude, network, country]
-11:10:57,945  INFO TableMetadata:65 - HHH000261: Table found: public.wdata
-11:10:57,947  INFO TableMetadata:66 - HHH000037: Columns: [gust, station, elev, drct, dwpf, date, long, network, relh, time, p24i, wthr, alti, tmpf, sknt, pmsl, lat]
+11:15:17,496 DEBUG logging:176 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+11:15:19,113  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.WdataKey
+11:15:19,115  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.WdataKey
+11:15:19,119  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.StateId
+11:15:19,121  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.StateId
+11:15:19,127  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.StationProviderKey
+11:15:19,129  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.StationProviderKey
+11:15:21,309  INFO SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+Hibernate: alter table wdata drop constraint FK6BBDCA1DF25ADF8
+Hibernate: drop table if exists country cascade
+Hibernate: drop table if exists network cascade
+Hibernate: drop table if exists param cascade
+Hibernate: drop table if exists provider cascade
+Hibernate: drop table if exists state cascade
+Hibernate: drop table if exists station cascade
+Hibernate: drop table if exists station_provider cascade
+Hibernate: drop table if exists wdata cascade
+Hibernate: create table country (id varchar(255) not null, name varchar(255), primary key (id))
+Hibernate: create table network (id int4 not null, name varchar(255), primary key (id))
+Hibernate: create table param (id varchar(255) not null, descrip varchar(255) not null, eunits varchar(255), munits varchar(255), primary key (id))
+Hibernate: create table provider (id int4 not null, name varchar(255) not null, primary key (id))
+Hibernate: create table state (country_id varchar(255) not null, id varchar(255) not null, name varchar(255), primary key (country_id, id))
+Hibernate: create table station (id varchar(255) not null, elevation float4, latitude float4, longitude float4, name varchar(255), network int4 not null, sec_id varchar(255), country varchar(255), state varchar(255), status varchar(255), primary key (id))
+Hibernate: create table station_provider (provider int4 not null, station varchar(255) not null, type int4 not null, primary key (provider, station, type))
+Hibernate: create table wdata (date int4 not null, station varchar(255) not null, time int4 not null, alti float4 not null, drct float4 not null, dwpf float4 not null, gust float4 not null, network int4 not null, p24i float4 not null, pmsl float4 not null, relh float4 not null, sknt float4 not null, tmpf float4 not null, wthr float4 not null, primary key (date, station, time))
+Hibernate: alter table wdata add constraint FK6BBDCA1DF25ADF8 foreign key (station) references station
+11:15:22,068  INFO SchemaExport:405 - HHH000230: Schema export complete
+11:15:22,228  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.WdataKey
+11:15:22,230  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.WdataKey
+11:15:22,232  WARN RootClass:288 - HHH000038: Composite-id class does not override equals(): drsy.weather.data.StateId
+11:15:22,234  WARN RootClass:289 - HHH000039: Composite-id class does not override hashCode(): drsy.weather.data.StateId
+11:15:23,156  INFO SchemaValidator:137 - HHH000229: Running schema validator
+11:15:23,158  INFO SchemaValidator:145 - HHH000102: Fetching database metadata
+11:15:23,212  INFO TableMetadata:65 - HHH000261: Table found: public.country
+11:15:23,213  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
+11:15:23,230  INFO TableMetadata:65 - HHH000261: Table found: public.network
+11:15:23,232  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
+11:15:23,253  INFO TableMetadata:65 - HHH000261: Table found: public.param
+11:15:23,254  INFO TableMetadata:66 - HHH000037: Columns: [id, eunits, descrip, munits]
+11:15:23,277  INFO TableMetadata:65 - HHH000261: Table found: public.provider
+11:15:23,278  INFO TableMetadata:66 - HHH000037: Columns: [id, name]
+11:15:23,303  INFO TableMetadata:65 - HHH000261: Table found: public.state
+11:15:23,305  INFO TableMetadata:66 - HHH000037: Columns: [id, name, country_id]
+11:15:23,333  INFO TableMetadata:65 - HHH000261: Table found: public.station
+11:15:23,335  INFO TableMetadata:66 - HHH000037: Columns: [id, sec_id, status, elevation, name, state, longitude, latitude, network, country]
+11:15:23,366  INFO TableMetadata:65 - HHH000261: Table found: public.wdata
+11:15:23,367  INFO TableMetadata:66 - HHH000037: Columns: [gust, station, elev, drct, dwpf, date, long, network, relh, time, p24i, wthr, alti, tmpf, sknt, pmsl, lat]
 Hibernate: select this_.id as id5_1_, this_.elevation as elevation5_1_, this_.latitude as latitude5_1_, this_.longitude as longitude5_1_, this_.name as name5_1_, this_.network as network5_1_, this_.sec_id as sec7_5_1_, this_.country as country5_1_, this_.state as state5_1_, this_.status as status5_1_, wdatas2_.station as station5_3_, wdatas2_.date as date6_3_, wdatas2_.station as station6_3_, wdatas2_.time as time6_3_, wdatas2_.date as date6_0_, wdatas2_.station as station6_0_, wdatas2_.time as time6_0_, wdatas2_.alti as alti6_0_, wdatas2_.drct as drct6_0_, wdatas2_.dwpf as dwpf6_0_, wdatas2_.gust as gust6_0_, wdatas2_.network as network6_0_, wdatas2_.p24i as p9_6_0_, wdatas2_.pmsl as pmsl6_0_, wdatas2_.relh as relh6_0_, wdatas2_.sknt as sknt6_0_, wdatas2_.tmpf as tmpf6_0_, wdatas2_.wthr as wthr6_0_ from station this_ left outer join wdata wdatas2_ on this_.id=wdatas2_.station where this_.id = ? limit ?
 
 found 1 results
-drsy.weather.data.Station@2bbd9de3
+drsy.weather.data.Station@622b2af3
 
 -----------------------------------------------------
 Hibernate: select network0_.id as id1_0_, network0_.name as name1_0_ from network network0_ where network0_.id=?
-ARL SORD
 
 -----------------------------------------------------
 Hibernate: select wdata0_.date as date6_0_, wdata0_.station as station6_0_, wdata0_.time as time6_0_, wdata0_.alti as alti6_0_, wdata0_.drct as drct6_0_, wdata0_.dwpf as dwpf6_0_, wdata0_.gust as gust6_0_, wdata0_.network as network6_0_, wdata0_.p24i as p9_6_0_, wdata0_.pmsl as pmsl6_0_, wdata0_.relh as relh6_0_, wdata0_.sknt as sknt6_0_, wdata0_.tmpf as tmpf6_0_, wdata0_.wthr as wthr6_0_ from wdata wdata0_ where wdata0_.date=? and wdata0_.station=? and wdata0_.time=?
-
-found results
-106    DKRM8
 
 -----------------------------------------------------
 Hibernate: select this_.id as id5_1_, this_.elevation as elevation5_1_, this_.latitude as latitude5_1_, this_.longitude as longitude5_1_, this_.name as name5_1_, this_.network as network5_1_, this_.sec_id as sec7_5_1_, this_.country as country5_1_, this_.state as state5_1_, this_.status as status5_1_, wdatas2_.station as station5_3_, wdatas2_.date as date6_3_, wdatas2_.station as station6_3_, wdatas2_.time as time6_3_, wdatas2_.date as date6_0_, wdatas2_.station as station6_0_, wdatas2_.time as time6_0_, wdatas2_.alti as alti6_0_, wdatas2_.drct as drct6_0_, wdatas2_.dwpf as dwpf6_0_, wdatas2_.gust as gust6_0_, wdatas2_.network as network6_0_, wdatas2_.p24i as p9_6_0_, wdatas2_.pmsl as pmsl6_0_, wdatas2_.relh as relh6_0_, wdatas2_.sknt as sknt6_0_, wdatas2_.tmpf as tmpf6_0_, wdatas2_.wthr as wthr6_0_ from station this_ left outer join wdata wdatas2_ on this_.id=wdatas2_.station where this_.id = ?
@@ -741,13 +739,37 @@ Results Found ---> 5
 ----> AT STATION: MDKY, Dickey Lake US-93 MP 160.2  MINIMUM TEMPERATURE:  25.0
 ------------- ---------------- ---------------
 
-Testcase: testCriteria took 6.627 sec
-Testcase: testQueryHQL took 0.025 sec
-Testcase: testWdatakey took 0.017 sec
-Testcase: testStation took 0.304 sec
-Testcase: averagedataStation took 0.293 sec
-Testcase: testdatathroughdateandState took 8.582 sec
-Testcase: countStations took 15.867 sec
-Testcase: stationsRange took 7.945 sec
-Testcase: testaverageStationdatathroughdate took 0.866 sec
-Testcase: testminimumStationdatathroughdate took 0.815 sec
+Testcase: testCriteria took 7.134 sec
+Testcase: testQueryHQL took 0.029 sec
+	Caused an ERROR
+No row with the given identifier exists: [drsy.weather.data.Network#10]
+org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [drsy.weather.data.Network#10]
+	at org.hibernate.internal.SessionFactoryImpl$1$1.handleEntityNotFound(SessionFactoryImpl.java:242)
+	at org.hibernate.proxy.AbstractLazyInitializer.checkTargetState(AbstractLazyInitializer.java:248)
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:176)
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:272)
+	at org.hibernate.proxy.pojo.javassist.JavassistLazyInitializer.invoke(JavassistLazyInitializer.java:185)
+	at drsy.weather.data.Network_$$_javassist_6.getName(Network_$$_javassist_6.java)
+	at drsy.weather.app.testQuery.find(testQuery.java:43)
+	at drsy.weather.app.StationQueryTest.testQueryHQL(StationQueryTest.java:41)
+
+Testcase: testWdatakey took 0.009 sec
+	Caused an ERROR
+No row with the given identifier exists: [drsy.weather.data.Wdata#drsy.weather.data.WdataKey@6d56d7c8]
+org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [drsy.weather.data.Wdata#drsy.weather.data.WdataKey@6d56d7c8]
+	at org.hibernate.internal.SessionFactoryImpl$1$1.handleEntityNotFound(SessionFactoryImpl.java:242)
+	at org.hibernate.proxy.AbstractLazyInitializer.checkTargetState(AbstractLazyInitializer.java:248)
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:176)
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:272)
+	at org.hibernate.proxy.pojo.javassist.JavassistLazyInitializer.invoke(JavassistLazyInitializer.java:185)
+	at drsy.weather.data.Wdata_$$_javassist_0.getAlti(Wdata_$$_javassist_0.java)
+	at drsy.weather.app.testQuery.find(testQuery.java:93)
+	at drsy.weather.app.StationQueryTest.testWdatakey(StationQueryTest.java:68)
+
+Testcase: testStation took 0.215 sec
+Testcase: averagedataStation took 0.156 sec
+Testcase: testdatathroughdateandState took 5.068 sec
+Testcase: countStations took 10.968 sec
+Testcase: stationsRange took 5.117 sec
+Testcase: testaverageStationdatathroughdate took 0.461 sec
+Testcase: testminimumStationdatathroughdate took 0.417 sec
