@@ -92,6 +92,19 @@
 
 		</junit>
 	</target>
+	
+	<target name="test.shard" depends="build.test">
+			<junit printsummary='yes' fork='yes' maxmemory="4096m">
+				<classpath refid="project.classpath" />
+
+				<formatter type="plain" />
+
+				<test name="drsy.weather.app.LocationHashTest" haltonfailure="no" outfile="result">
+					<formatter type="xml" />
+				</test>
+
+			</junit>
+	</target>
 
 	<target name="demo" depends="build">
 		<java fork="yes" classname="hibernate.SimpleApp">

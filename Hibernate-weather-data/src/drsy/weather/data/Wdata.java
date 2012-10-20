@@ -1,6 +1,5 @@
 package drsy.weather.data;
 
-import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
