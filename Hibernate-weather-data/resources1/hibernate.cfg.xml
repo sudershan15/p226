@@ -10,7 +10,7 @@
 
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">org.postgresql.Driver</property>
-		<property name="connection.url">jdbc:postgresql://localhost/p226_v2</property>
+		<property name="connection.url">jdbc:postgresql://localhost/p226_v1</property>
 		<property name="connection.username">gash</property>
 		<property name="connection.password">gash</property>
 
@@ -30,7 +30,7 @@
 		<property name="current_session_context_class">thread</property>
 
 		<!-- Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">create-drop</property>
+		<property name="hbm2ddl.auto">validate</property>
 
 		<mapping class="drsy.weather.data.Country" />
 		<mapping class="drsy.weather.data.Network" />
@@ -39,6 +39,8 @@
 		<mapping class="drsy.weather.data.State" /> 
 		<mapping class="drsy.weather.data.Station" />
 		<mapping class="drsy.weather.data.Wdata" /> 
+		<mapping class="drsy.weather.data.StationProvider" />
+		
 	</session-factory>
 
 </hibernate-configuration>
