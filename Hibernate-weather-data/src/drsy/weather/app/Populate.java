@@ -33,15 +33,11 @@ public class Populate extends testQuery {
 
 		String path = "C:/Users/smalpani/Desktop/Sep25.zip";
 		String[] path1 = path.split("/");
-		String destinationPath = "";
+		
 		String resultantFolder = "";
 		String resultFolder = "";
 		for(String loc : path1) {
-			if (!loc.contains(".zip") && loc != null) {
-				destinationPath += loc;
-				destinationPath += "/";
-			} else if (loc.endsWith(".zip")) {
-				System.out.println(loc  + "   " +loc.split(".") + "    ");
+			if (loc.endsWith(".zip")) {
 				int i = 0;
 				while (loc.charAt(i) != '.' && i != loc.length()){
 					resultantFolder += loc.charAt(i);
@@ -50,7 +46,7 @@ public class Populate extends testQuery {
 			}
 
 		}
-		resultFolder = destinationPath + resultantFolder;
+		resultFolder = resultantFolder;
 		z.unzipFolder(path );
 		/*while (entries.hasMoreElements()) {
 			String nameFile = entries.nextElement().toString();
