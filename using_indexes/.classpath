@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Cassandra_Jars/cassandra-all-0.7.4.jar"/>
+	<classpathentry kind="lib" path="C:/Cassandra_Jars/cassandra-javautils-0.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Cassandra_Jars/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Cassandra_Jars/google-collect-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Cassandra_Jars/hector-core-0.7.0-29.jar"/>
+	<classpathentry kind="lib" path="C:/Cassandra_Jars/high-scale-lib-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Cassandra_Jars/libthrift-0.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Cassandra_Jars/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Cassandra_Jars/perf4j-0.9.12.jar"/>
+	<classpathentry kind="lib" path="C:/Cassandra_Jars/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>
