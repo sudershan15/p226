@@ -28,6 +28,7 @@ public class LoaderTest {
 
 	@SuppressWarnings("null")
 	@Test
+	@Ignore
 	public void testLoadDocs() throws Exception {
 		File swf = new File("resources/stopwords.txt");
 		StopWords swords = new StopWordsFile(swf);
@@ -161,18 +162,10 @@ public class LoaderTest {
 	}
 
 	@Test
-	@Ignore
 	public void testLoadDocsAll() throws Exception {
-		File swf = new File("resources/stopwords-long.txt");
-		StopWords swords = new StopWordsFile(swf);
-		File dir = new File("testdata/docs");
-		Loader ldr = new Loader(swords);
-		List<Document> docs = ldr.load(dir);
-
-		Assert.assertEquals("mismatch in number of files", 5, docs.size());
-
-		for (Document d : docs)
-			System.out.println(d + "\n");
+		Insertion ins = new Insertion();
+		String k = ins.get("love");
+		System.out.println(k);
 	}
 
 	@Test

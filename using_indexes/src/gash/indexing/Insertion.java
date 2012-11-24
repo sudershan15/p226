@@ -2,22 +2,28 @@ package gash.indexing;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 import org.apache.cassandra.thrift.InvalidRequestException;
 import org.apache.cassandra.thrift.NotFoundException;
 import org.apache.thrift.TException;
 
+import me.prettyprint.cassandra.model.IndexedSlicesQuery;
 import me.prettyprint.cassandra.serializers.StringSerializer;
 import me.prettyprint.cassandra.service.CassandraHostConfigurator;
 import me.prettyprint.cassandra.service.ThriftKsDef;
 import me.prettyprint.hector.api.Cluster;
 import me.prettyprint.hector.api.Keyspace;
+import me.prettyprint.hector.api.beans.OrderedRows;
+import me.prettyprint.hector.api.beans.Row;
 import me.prettyprint.hector.api.ddl.ColumnFamilyDefinition;
 import me.prettyprint.hector.api.ddl.ComparatorType;
 import me.prettyprint.hector.api.ddl.KeyspaceDefinition;
 import me.prettyprint.hector.api.factory.HFactory;
 import me.prettyprint.hector.api.mutation.Mutator;
+import me.prettyprint.hector.api.query.QueryResult;
 
 public class Insertion {
 
@@ -86,73 +92,51 @@ public class Insertion {
 	}
 
 	public static void main(String[] args) throws IOException, InvalidRequestException, FileNotFoundException, TException{
-		Insertion sample = new Insertion();
-		//System.out.println(cluster.describeClusterName());
-		int replicationFactor = 10;
-
-		/*Cluster myCluster = HFactory.getOrCreateCluster("test-cluster-226","localhost:9160");
-		ColumnFamilyDefinition cfDef = HFactory.createColumnFamilyDefinition("Project226_Thrift",
-                "p226Books",
-                ComparatorType.BYTESTYPE);
-		KeyspaceDefinition def = HFactory.createKeyspaceDefinition("Project226_Thrift",
-                ThriftKsDef.DEF_STRATEGY_CLASS,
-                replicationFactor,
-                Arrays.asList(cfDef));;
-		myCluster.addKeyspace(def );*/
-		//System.out.println(cluster.describeKeyspace("Project226_Thrift")+ " " + keyspace.getKeyspaceName());
-		//DataImportExample sample = new DataImportExample();
-		//TableModel t = CSVParser.parse(new File("C:/Users/Sudershan/Desktop/csvoneclmn.csv"));
-
-		// Print all the columns of the table, followed by a new line.
-		/*for (int x = 0; x < t.getColumnCount(); x++) {
-System.out.println(t.getColumnName(x) + " ");
-}*/
-		//System.out.println();
-		//int v=t.getRowCount();
-		//int u=t.getColumnCount();
-		//System.out.println(u+ " "+v);
-		//int y=0;
-		// Print all the data from the table.
-		//for (int x = 0; x < v+1; x++) {
-		//for (int y = 0; y < t.getColumnCount(); y++)
-		//while (y!=u)
-		{
-			//System.out.print(t.getValueAt(x,y ) + " "+t.getValueAt(x, y+1)+" "+t.getValueAt(x, y+2)+" "+t.getValueAt(x, y+3)+"\n");
-			//Tweet tweet = new Tweet(UUID.randomUUID(),"","", "","");
-			//sample.insert1();
-			//y=u;
-		}
-		String key = "Name";
-		// COLUMN_NAME;
-		//String COLUMN_NAME = "";
-		//System.out.println(string(keyspace.getColumn(key, createColumnPath(COLUMN_NAME)).getValue()));
-		// y=0;
-		//}
-
-
-
+		
 	}
 
 
-}
+
 /*
  *//**
  * Get a string value.
  * @return The string value; null if no value exists for the given key.
- *//*
+ */
 	public String get(final String key) throws Exception {
-		return execute(new Command(){
-			public String execute(final Keyspace ks) throws Exception {
-				try {
-					return string(ks.getColumn(key, createColumnPath(COLUMN_NAME)).getValue());
-				} catch (NotFoundException e) {
-					return null;
-				}
-			}
-		});
+		ArrayList<String> al = new ArrayList<String>();
+		StringBuilder searchresult = new StringBuilder();
+		IndexedSlicesQuery<String, String, String> isq = HFactory.createIndexedSlicesQuery(keyspace, ss, ss, ss);
+		isq.addEqualsExpression("Keyword", key);
+		isq.setColumnNames("Name","Frequency", "Percentage");
+		isq.setColumnFamily("p226Books");
+		QueryResult<OrderedRows<String, String, String>> result = isq.execute();
+		isq.setStartKey("");
+		OrderedRows<String, String, String> rows = result.get();
+		System.out.println("here");
+		Iterator<Row<String, String, String>> rowsIterator =rows.iterator();
+		while (rowsIterator.hasNext())
+		        {
+		            Row<String, String, String> row = rowsIterator.next();
+		            String row1 = row.getKey();
+		            String name = row.getColumnSlice().getColumnByName("Name").getValue();
+		            String frequency = row.getColumnSlice().getColumnByName("Frequency").getValue();
+		            String Percentage = row.getColumnSlice().getColumnByName("Percentage").getValue();
+		            //lat=row.getColumnSlice().getColumnByName("lat").getValue();
+		            //lon=row.getColumnSlice().getColumnByName("lon").getValue();
+		            searchresult.append(row1 + ", " + name + ", " + frequency + ", " + Percentage + "\n");//+", "+lon+")\n";
+		           // System.out.println(searchresult);
+//		            al.add(searchresult);
+//		            for(int i=0;i<al.size();i++){
+//		            	
+//		            //last_key.setSearchrestrauntsresult(al.toString()+"\n");
+//		            System.out.println("here");
+//		            }
+//		            //last_key.setSearchresponseresult(searchresult);
+		        }
+		        return searchresult.toString();
 	}
 
-  *//**
+  /**
   * Delete a key from cassandra
   *//*
 	public void delete(final String key) throws Exception {
@@ -164,3 +148,4 @@ System.out.println(t.getColumnName(x) + " ");
 		});
 	}
    */
+}
