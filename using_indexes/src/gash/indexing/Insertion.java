@@ -1,26 +1,14 @@
 package gash.indexing;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
-
-import org.apache.cassandra.thrift.InvalidRequestException;
-import org.apache.cassandra.thrift.NotFoundException;
-import org.apache.thrift.TException;
 
 import me.prettyprint.cassandra.model.IndexedSlicesQuery;
 import me.prettyprint.cassandra.serializers.StringSerializer;
 import me.prettyprint.cassandra.service.CassandraHostConfigurator;
-import me.prettyprint.cassandra.service.ThriftKsDef;
 import me.prettyprint.hector.api.Cluster;
 import me.prettyprint.hector.api.Keyspace;
 import me.prettyprint.hector.api.beans.OrderedRows;
 import me.prettyprint.hector.api.beans.Row;
-import me.prettyprint.hector.api.ddl.ColumnFamilyDefinition;
-import me.prettyprint.hector.api.ddl.ComparatorType;
-import me.prettyprint.hector.api.ddl.KeyspaceDefinition;
 import me.prettyprint.hector.api.factory.HFactory;
 import me.prettyprint.hector.api.mutation.Mutator;
 import me.prettyprint.hector.api.query.QueryResult;
@@ -58,9 +46,9 @@ public class Insertion {
 												"p226Books",
 												HFactory.createStringColumn("StdDev", "null"))
 												.addInsertion(mkey,
-												"p226Books",
-												HFactory.createStringColumn("Percentage", String.valueOf((Double)Double.parseDouble(freq)/totalKeys * 100)))
-												;
+														"p226Books",
+														HFactory.createStringColumn("Percentage", String.valueOf((Double)Double.parseDouble(freq)/totalKeys * 100)))
+														;
 		m1.execute();
 
 	}
@@ -91,19 +79,12 @@ public class Insertion {
 		m1.execute();
 	}
 
-	public static void main(String[] args) throws IOException, InvalidRequestException, FileNotFoundException, TException{
-		
-	}
-
-
-
-/*
- *//**
- * Get a string value.
- * @return The string value; null if no value exists for the given key.
- */
+	/*
+	 *//**
+	 * Get a string value.
+	 * @return The string value; null if no value exists for the given key.
+	 */
 	public String get(final String key) throws Exception {
-		ArrayList<String> al = new ArrayList<String>();
 		StringBuilder searchresult = new StringBuilder();
 		IndexedSlicesQuery<String, String, String> isq = HFactory.createIndexedSlicesQuery(keyspace, ss, ss, ss);
 		isq.addEqualsExpression("Keyword", key);
@@ -115,30 +96,20 @@ public class Insertion {
 		System.out.println("here");
 		Iterator<Row<String, String, String>> rowsIterator =rows.iterator();
 		while (rowsIterator.hasNext())
-		        {
-		            Row<String, String, String> row = rowsIterator.next();
-		            String row1 = row.getKey();
-		            String name = row.getColumnSlice().getColumnByName("Name").getValue();
-		            String frequency = row.getColumnSlice().getColumnByName("Frequency").getValue();
-		            String Percentage = row.getColumnSlice().getColumnByName("Percentage").getValue();
-		            //lat=row.getColumnSlice().getColumnByName("lat").getValue();
-		            //lon=row.getColumnSlice().getColumnByName("lon").getValue();
-		            searchresult.append(row1 + ", " + name + ", " + frequency + ", " + Percentage + "\n");//+", "+lon+")\n";
-		           // System.out.println(searchresult);
-//		            al.add(searchresult);
-//		            for(int i=0;i<al.size();i++){
-//		            	
-//		            //last_key.setSearchrestrauntsresult(al.toString()+"\n");
-//		            System.out.println("here");
-//		            }
-//		            //last_key.setSearchresponseresult(searchresult);
-		        }
-		        return searchresult.toString();
+		{
+			Row<String, String, String> row = rowsIterator.next();
+			String row1 = row.getKey();
+			String name = row.getColumnSlice().getColumnByName("Name").getValue();
+			String frequency = row.getColumnSlice().getColumnByName("Frequency").getValue();
+			String Percentage = row.getColumnSlice().getColumnByName("Percentage").getValue();
+			searchresult.append(row1 + ", " + name + ", " + frequency + ", " + Percentage + "\n");//+", "+lon+")\n";
+		}
+		return searchresult.toString();
 	}
 
-  /**
-  * Delete a key from cassandra
-  *//*
+	/**
+	 * Delete a key from cassandra
+	 *//*
 	public void delete(final String key) throws Exception {
 		execute(new Command(){
 			public Void execute(final Keyspace ks) throws Exception {
@@ -147,5 +118,5 @@ public class Insertion {
 			}
 		});
 	}
-   */
+	  */
 }

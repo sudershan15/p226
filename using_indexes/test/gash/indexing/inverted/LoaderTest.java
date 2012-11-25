@@ -6,7 +6,10 @@ import gash.indexing.stopwords.StopWords;
 import gash.indexing.stopwords.StopWordsFile;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Properties;
 import java.util.Scanner;
 
 import junit.framework.Assert;
@@ -18,8 +21,15 @@ import org.junit.Test;
 
 public class LoaderTest {
 
+	static Properties conf = new Properties();
+	String path_of_files = "path.files";
+
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+
+		InputStream is = new FileInputStream("resources/setup.properties");
+		conf.load(is);
 	}
 
 	@AfterClass
@@ -28,21 +38,20 @@ public class LoaderTest {
 
 	@SuppressWarnings("null")
 	@Test
-	@Ignore
 	public void testLoadDocs() throws Exception {
 		File swf = new File("resources/stopwords.txt");
 		StopWords swords = new StopWordsFile(swf);
 		Insertion i = new Insertion();
 		Scanner s;
 		String[] stddev = null;
-		File dir = new File("C:/Users/smalpani/Desktop/subjects/226/data2");
+		File dir = new File(conf.getProperty(path_of_files));
 		Loader ldr = new Loader(swords);
 		List<Document> docs = ldr.load(dir);
 		//Assert.assertEquals("mismatch in number of files", 4, docs.size());
 		System.out.println(docs.size());
 		for (Document d : docs) {
-			System.out.println(" -- "+ d.csvHeader() + " -- " + d.getLocation() );
-			System.out.println(d.csvData());
+			//System.out.println(" -- "+ d.csvHeader() + " -- " + d.getLocation() );
+			//System.out.println(d.csvData());
 			s = new Scanner(d.csvData());
 			s.useDelimiter(",");
 
@@ -59,22 +68,23 @@ public class LoaderTest {
 					p[maxlength] = key1;
 				}
 				if (s.hasNext()) {
-				String frq = s.next();
-				String mean = s.next();
-				String st = s.next();
+					String frq = s.next();
+					String mean = s.next();
+					String st = s.next();
 
-				if(st.contains("\n")) {
-					stddev = st.split("\n");
-					System.out.println(p[maxlength] + "----------------" + frq + "----------------" + mean  + " ----- " + stddev[0]);
-					i.insert(p[maxlength], frq, mean, stddev[0], d.getName(), d.getNumWords());
-					if(stddev.length > 1 && stddev[1] != null){ 
-						String sw = s.next(),h = s.next();
-						System.out.println(stddev[1] + "----------------" + sw + "----------------" + h );
-						i.insert(stddev[1], sw, h, d.getName(), d.getNumWords());
+					if(st.contains("\n")) {
+						stddev = st.split("\n");
+						//	System.out.println(p[maxlength] + "----------------" + frq + "----------------" + mean  + " ----- " + stddev[0]);
+						i.insert(p[maxlength], frq, mean, stddev[0], d.getName(), d.getNumWords());
+						if(stddev.length > 1 && stddev[1] != null){ 
+							String sw = s.next(),h = s.next();
+							//			System.out.println(stddev[1] + "----------------" + sw + "----------------" + h );
+							i.insert(stddev[1], sw, h, d.getName(), d.getNumWords());
+						}	
+					} else {
+						i.insert(key1, frq, mean, st, d.getName(), d.getNumWords());
 					}
-				} else {
-					i.insert(key1, frq, mean, st, d.getName(), d.getNumWords());
-				}}
+				}
 			} while (s.hasNextLine());
 
 
@@ -163,8 +173,9 @@ public class LoaderTest {
 
 	@Test
 	public void testLoadDocsAll() throws Exception {
+		String keyword = conf.getProperty("search.keyword");
 		Insertion ins = new Insertion();
-		String k = ins.get("love");
+		String k = ins.get(keyword);
 		System.out.println(k);
 	}
 
