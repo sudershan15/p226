@@ -33,6 +33,7 @@ public class Document {
 		date = new Date(f.lastModified());
 	}
 
+	
 	public KeyWord getWord(String word) {
 		return keywords.get(word);
 	}

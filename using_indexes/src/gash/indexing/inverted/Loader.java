@@ -1,6 +1,8 @@
 package gash.indexing.inverted;
 
+import gash.indexing.Book;
 import gash.indexing.Document;
+import gash.indexing.Insertion;
 import gash.indexing.stopwords.StopWords;
 
 import java.io.BufferedReader;
@@ -41,8 +43,10 @@ public class Loader {
 		// TODO this should be ran in parallel
 		ArrayList<Document> r = new ArrayList<Document>(list.size());
 		for (File f : list) {
+			Insertion i = new Insertion();
 			BufferedReader rdr = null;
 			Document d = new Document(f);
+			Book b = new Book();
 
 			try {
 				rdr = new BufferedReader(new FileReader(f));
@@ -52,36 +56,53 @@ public class Loader {
 				int prbcount = 0;
 				String title = "";
 				while (raw != null) {
-					if (raw.trim().startsWith("Title"))
+					
+					
+					if (raw.trim().startsWith("Title:"))
 					{
 						String[] master = raw.trim().split(":");
-						title = master[1].trim();
-						System.out.println("Title: " + master[1].trim());
+						//System.out.println("Title: " + master[1].trim());
+						b.setTitle(master[1].trim());
+						i .insert("Title", master[1].trim(), f.getName());
 					}
-					else if (raw.trim().startsWith("Author"))
+					else if (raw.trim().startsWith("Author:"))
 					{
 						String[] master = raw.trim().split(":");
-						System.out.println("Author: " + master[1].trim());
+						if(master.length > 1) {
+						//System.out.println("Author: " + master[1].trim());
+						b.setAuthor(master[1].trim());
+						i.insert("Author", master[1].trim(), f.getName());
+						}
 					}
 					else if (raw.trim().startsWith("Release Date"))
 					{
 						String[] master = raw.trim().split(":");
-						System.out.println("Release Date: " + master[1].trim());
+						//System.out.println("Release Date: " + master[1].trim());
+						b.setRelease_date(master[1].trim());
+						i.insert("ReleaseDate", master[1].trim(), f.getName());
 					}
 					else if (raw.trim().startsWith("Posting Date"))
 					{
 						String[] master = raw.trim().split(":");
-						System.out.println("Posting Date: " + master[1].trim());
+						//System.out.println("Posting Date: " + master[1].trim());
+						b.setPosting_date(master[1].trim());
+						i.insert("PostingDate", master[1].trim(), f.getName());
 					}
-					else if (raw.trim().startsWith("Language"))
+					else if (raw.trim().startsWith("Language:"))
 					{
 						String[] master = raw.trim().split(":");
-						System.out.println("Language: " + master[1].trim());
+						//System.out.println("Language: " + master[1].trim());
+						b.setLanguage(master[1].trim());
+						i.insert("Language", master[1].trim(), f.getName());
 					}
-					else if (raw.trim().startsWith("Translator"))
+					else if (raw.trim().startsWith("Translator:"))
 					{
 						String[] master = raw.trim().split(":");
-						System.out.println("Translator: " + master[1].trim());
+						if(master.length > 1){
+						//System.out.println("Translator: " + master[1].trim());
+						b.setTranslator(master[1].trim());
+						i.insert("Translator", master[1].trim(), f.getName());
+						}
 					}
 					else if (raw.trim().startsWith("***")) { ;	}
 					else if (raw.trim().isEmpty()) { ; }
@@ -89,7 +110,9 @@ public class Loader {
 					{
 						if(prbcount == 0) {
 							String[] master = raw.trim().split("by");
-							System.out.println("Produced by: " + master[1].trim());
+							//System.out.println("Produced by: " + master[1].trim());
+							b.setProduced_by(master[1].trim());
+							i.insert("ProducedBy", master[1].trim(), f.getName());
 							prbcount++;
 						}
 						

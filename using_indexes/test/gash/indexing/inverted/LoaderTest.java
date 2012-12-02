@@ -47,7 +47,7 @@ public class LoaderTest {
 		File dir = new File(conf.getProperty(path_of_files));
 		Loader ldr = new Loader(swords);
 		List<Document> docs = ldr.load(dir);
-		//Assert.assertEquals("mismatch in number of files", 4, docs.size());
+		//Assert.assertEquals("mismatch in number of files", 565, docs.size());
 		System.out.println(docs.size());
 		for (Document d : docs) {
 			//System.out.println(" -- "+ d.csvHeader() + " -- " + d.getLocation() );
