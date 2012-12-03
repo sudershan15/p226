@@ -23,6 +23,7 @@ import me.prettyprint.hector.api.beans.OrderedRows;
 import me.prettyprint.hector.api.beans.Row;
 import me.prettyprint.hector.api.factory.HFactory;
 import me.prettyprint.hector.api.mutation.Mutator;
+import me.prettyprint.hector.api.query.CountQuery;
 import me.prettyprint.hector.api.query.QueryResult;
 import me.prettyprint.hector.api.query.RangeSlicesQuery;
 
@@ -134,6 +135,7 @@ public class Insertion {
 				rangeSlicesQuery.setColumnFamily("p226BooksData");
 				rangeSlicesQuery.setKeys(bookname, null);
 				//rangeSlicesQuery.setColumnNames("Title");
+				rangeSlicesQuery.setRowCount(100000);
 				rangeSlicesQuery.setRange("Contents", "Title",  false, 100000);
 				QueryResult<OrderedRows<String, String, String>> result = rangeSlicesQuery.execute();
 		//Map map = keyspace.getRangeSlice(cp, sp, "", "", 1000);
@@ -149,6 +151,11 @@ public class Insertion {
 		}
 		//searchresult.append("\n");
 		return searchresult.toString();
+	}
+	
+	public void count(String dbname) {
+		//CountQuery<String, String> cq = Hfa;
+		
 	}
 	
 	public void insert(String s1, String v1, String bukname) {

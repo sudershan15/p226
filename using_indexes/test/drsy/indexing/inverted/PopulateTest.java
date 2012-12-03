@@ -156,7 +156,7 @@ public class PopulateTest {
 		while(lenght > 1) {
 			if(!books[lenght-1].trim().equals(null) || !books[lenght-1].trim().isEmpty() || books[lenght-1].trim() != "") {
 				String[] bookname = books[lenght-1].split(",");
-				map.put(bookname[1], Double.parseDouble(bookname[2].trim()));
+				map.put(bookname[1], Double.parseDouble(bookname[3].trim()));
 			}
 			lenght--;
 		}
