@@ -40,7 +40,7 @@ public class PopulateTest {
 	}
 
 	@Test
-	@Ignore
+	//@Ignore
 	public void testLoadDocs() throws Exception {
 		File swf = new File("resources/stopwords.txt");
 		StopWords swords = new StopWordsFile(swf);
@@ -126,7 +126,7 @@ public class PopulateTest {
 	}
 
 	@Test
-	@Ignore
+	//@Ignore
 	public void testSearchBookFromKeyword() throws Exception {
 		String keyword = conf.getProperty("search.keyword");
 		Insertion ins = new Insertion();
