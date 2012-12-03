@@ -58,8 +58,8 @@ public class Loader {
 				int prbcount = 0;
 				String title = "";
 				while (raw != null) {
-					
-					
+
+
 					if (raw.trim().startsWith("Title:"))
 					{
 						String[] master = raw.trim().split(":");
@@ -71,9 +71,9 @@ public class Loader {
 					{
 						String[] master = raw.trim().split(":");
 						if(master.length > 1) {
-						//System.out.println("Author: " + master[1].trim());
-						b.setAuthor(master[1].trim());
-						i.insert("Author", master[1].trim(), f.getName());
+							//System.out.println("Author: " + master[1].trim());
+							b.setAuthor(master[1].trim());
+							i.insert("Author", master[1].trim(), f.getName());
 						}
 					}
 					else if (raw.trim().startsWith("Release Date"))
@@ -101,9 +101,9 @@ public class Loader {
 					{
 						String[] master = raw.trim().split(":");
 						if(master.length > 1){
-						//System.out.println("Translator: " + master[1].trim());
-						b.setTranslator(master[1].trim());
-						i.insert("Translator", master[1].trim(), f.getName());
+							//System.out.println("Translator: " + master[1].trim());
+							b.setTranslator(master[1].trim());
+							i.insert("Translator", master[1].trim(), f.getName());
 						}
 					}
 					else if (raw.trim().startsWith("***")) { ;	}
@@ -117,25 +117,25 @@ public class Loader {
 							i.insert("ProducedBy", master[1].trim(), f.getName());
 							prbcount++;
 						}
-						
+
 					}
 					else {
-					String[] parts = raw.trim().split(
-							"[\\s,\\.:;\\-#~\\(\\)\\?\\!\\&\\*\\\"\\/\\'\\`]");
-					
-					numWords += parts.length;
+						String[] parts = raw.trim().split(
+								"[\\s,\\.:;\\-#~\\(\\)\\?\\!\\&\\*\\\"\\/\\'\\`]");
 
-					for (String p : parts) {
-						if (!ignore.contains(p))
-							d.addKeyword(p, relPosition);
+						numWords += parts.length;
 
-						// location (word position) in document allows use to
-						// calculate strength by relative location and frequency
-						relPosition++;
-					}
+						for (String p : parts) {
+							if (!ignore.contains(p))
+								d.addKeyword(p, relPosition);
+
+							// location (word position) in document allows use to
+							// calculate strength by relative location and frequency
+							relPosition++;
+						}
 					}
 					raw = rdr.readLine();
-					
+
 				}
 
 				d.setNumWords(numWords);

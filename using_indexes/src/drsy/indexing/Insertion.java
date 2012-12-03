@@ -132,25 +132,20 @@ public class Insertion {
 		RangeSlicesQuery<String, String, String> rangeSlicesQuery =
 				HFactory.createRangeSlicesQuery(keyspace, ss, ss, ss);
 				rangeSlicesQuery.setColumnFamily("p226BooksData");
-				rangeSlicesQuery.setKeys("C:\\Users\\smalpani\\Desktop\\subjects\\226\\data2\\"+bookname, null);
+				rangeSlicesQuery.setKeys(bookname, null);
 				//rangeSlicesQuery.setColumnNames("Title");
 				rangeSlicesQuery.setRange("Contents", "Title",  false, 100000);
 				QueryResult<OrderedRows<String, String, String>> result = rangeSlicesQuery.execute();
 		//Map map = keyspace.getRangeSlice(cp, sp, "", "", 1000);
 				
 		for(Row<String, String, String> r: result.get()) {
-			System.out.println("---------->"+r.getKey());
-			String v = r.getKey();
-			//if(v.contains(bookname)) {
-			while(!r.getColumnSlice().equals(null)){
+			if(r.getKey().contains(bookname)){
 				for(HColumn<String, String> q: r.getColumnSlice().getColumns()){
-					//if(q.getValue().contains(bookname))
-						searchresult.append(q.getName() + ":" +q.getValue());
+					
+					searchresult.append(q.getName() + " : " + q.getValue() + "\n");
 				}
-				//System.out.println();
-			}
 			searchresult.append("\n");
-			//}
+			}
 		}
 		//searchresult.append("\n");
 		return searchresult.toString();
@@ -175,7 +170,7 @@ public class Insertion {
 
 	public String search(String bukname) throws Exception {
 		// TODO Auto-generated method stub
-		return getAll(bukname.trim());
+		return getAll(bukname);
 	}
 
 	/**
