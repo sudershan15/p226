@@ -28,6 +28,10 @@ public class Populate1 {
 	ArrayList<Book> books = new ArrayList<Book>();
 	private StopWords ignore;
 
+	public Populate1() {
+		
+	}
+	
 	public Populate1(StopWords stopWords) throws Exception {
 		ignore = stopWords;
 	}
@@ -221,6 +225,14 @@ public class Populate1 {
 		//	       
 
 
+	}
+
+	public ArrayList<String> getFiles() {
+		return files;
+	}
+
+	public ArrayList<Book> getBooks() {
+		return books;
 	}
 
 	public List<Document> load(String path) throws Exception {

@@ -10,7 +10,6 @@ import java.util.TreeMap;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import drsy.indexing.Document;
@@ -62,6 +61,7 @@ public class PopulateTest {
 
 			do {					
 				String key1 = s.next();
+				System.out.println(key1);
 				String[] p = null;
 				int maxlength = 0;
 				if(key1.contains("\n")) {
