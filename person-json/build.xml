@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<project name="JSON persistence" basedir="." default="build">
+
+	<target name="init">
+		<property name="name" value="protobuf" />
+		<property name="src.dir" location="${basedir}/src" />
+		<property name="test.dir" location="${basedir}/test" />
+		<property name="build.dir" location="${basedir}/classes" />
+		<property name="pkg.dir" location="${basedir}/dist" />
+
+		<property name="config.dir" location="${basedir}/resources" />
+		<property name="junit.jar" location="C:\eclipse\plugins\org.junit_4.10.0.v4_10_0_v20120426-0900\junit.jar" />
+
+		<path id="project.classpath">
+			<pathelement location="${build.dir}" />
+			<pathelement location="${junit.jar}" />
+			<fileset dir="${basedir}/lib">
+				<include name="*.jar" />
+			</fileset>
+		</path>
+
+		<path id="run.classpath">
+			<pathelement location="${build.dir}" />
+			<pathelement location="${junit.jar}" />
+			<fileset dir="${basedir}/lib">
+				<include name="*.jar" />
+			</fileset>
+		</path>
+	</target>
+
+	<target name="full" depends="clean,build,build.test" />
+
+	<target name="clean" depends="init">
+		<delete dir="${build.dir}" />
+		<delete dir="${generated.dir}" />
+	</target>
+
+	<target name="build" depends="init">
+		<mkdir dir="${build.dir}" />
+
+		<javac destdir="${build.dir}" debug="true" deprecation="false" optimize="false" failonerror="true">
+			<src path="${src.dir}" />
+			<classpath refid="project.classpath" />
+		</javac>
+
+	</target>
+
+	<target name="package" depends="clean,build">
+		<delete dir="${pkg.dir}" />
+		<mkdir dir="${pkg.dir}/conf" />
+		<mkdir dir="${pkg.dir}/lib" />
+
+		<jar compress='false' filesonly='true' destfile='${pkg.dir}/lib/ppl.jar'>
+			<fileset dir='${build.dir}'>
+				<include name='**/*' />
+				<exclude name='**/*Test.class' />
+			</fileset>
+		</jar>
+
+		<!-- runtime setup -->
+		<copy todir="${pkg.dir}/conf" file="${basedir}/resources/setup.properties" />
+	</target>
+
+	<target name="build.test" depends="build">
+		<javac destdir="${build.dir}" debug="true" deprecation="false" optimize="false" failonerror="true">
+			<src path="${test.dir}" />
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<target name="test.query" depends="build.test">
+		<junit printsummary='yes' fork='yes'>
+			<classpath refid="project.classpath" />
+
+			<formatter type="plain" />
+
+			<test name="gash.json.app.PeopleQueryTest" haltonfailure="no" outfile="result">
+				<formatter type="xml" />
+			</test>
+
+		</junit>
+	</target>
+
+	<target name="test.load" depends="build.test">
+		<junit printsummary='yes' fork='yes'>
+			<classpath refid="run.classpath" />
+
+			<formatter type="plain" />
+
+			<test name="gash.json.app.LoadTest" haltonfailure="no" outfile="result">
+				<formatter type="xml" />
+			</test>
+
+		</junit>
+	</target>
+
+	<target name="test.indexing" depends="build.test">
+		<junit printsummary='yes' fork='yes'>
+			<classpath refid="run.classpath" />
+
+			<formatter type="plain" />
+
+			<test name="gash.json.engine.indexing.IndexMemoryTest" haltonfailure="no" outfile="result">
+				<formatter type="xml" />
+			</test>
+
+		</junit>
+	</target>
+</project>

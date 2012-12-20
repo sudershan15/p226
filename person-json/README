@@ -1,0 +1,37 @@
+To use:
+
+1. Download the following
+
+	a. maven 3.x
+	b. solr (http://lucene.apache.org/solr)
+	c. protostuff (http://code.google.com/p/protostuff)
+		i. package (.zip)
+		ii. java compiler (.jar)
+	
+2. Install maven
+
+	a. unzip
+	b. set $path
+	
+3. Build protostuff (requires maven, gcc, and an Internet connection)
+
+	a. unzip protostuff-1.0.0.zip
+	b. cd into and run the command: mvn install
+	
+4. Install Solr (use default example)
+	a. download solr
+	b. ant compile, example
+	
+4. Create an Eclipse project
+	
+	a. import project
+	b. create user library - protostuff
+	
+5. Running
+
+	a. start solr (see http://lucene.apache.org/solr/tutorial.html)
+		i. cd solr/example
+		ii. java -jar start.jar
+	b. run: ant full
+	c. run: ant test.load
+	d. run: ant test.query
