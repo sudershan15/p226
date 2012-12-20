@@ -1,0 +1,17 @@
+Testsuite: gash.proto.app.LoadTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1.001 sec
+------------- Standard Output ---------------
+---> create took 428 msec, 0.428 msec/entry
+---> load took 149 msec, 0.149 msec/entry
+
+---> query: Charlie
+
+- Charlie, ID = 32b218d2-fecc-4e19-8aa5-a992461b1279
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+1 [main] INFO gash.proto.engine.ProtoEngine - opening collection: test
+1 [main] INFO gash.proto.engine.ProtoEngine - collection data: /opt/226/ppl/test/data
+1 [main] INFO gash.proto.engine.ProtoEngine - collection index: /opt/226/ppl/test/index
+------------- ---------------- ---------------
+
+Testcase: testLoadUsers took 0.795 sec

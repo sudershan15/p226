@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<project name="Protobuf persistence" basedir="." default="build">
+
+	<target name="init">
+		<property name="name" value="protobuf" />
+		<property name="src.dir" location="${basedir}/src" />
+		<property name="generated.dir" location="${basedir}/generated" />
+		<property name="test.dir" location="${basedir}/test" />
+		<property name="build.dir" location="${basedir}/classes" />
+		<property name="pkg.dir" location="${basedir}/dist" />
+
+		<property name="config.dir" location="${basedir}/resources" />
+		<property name="proto.dir" location="C:\protostuff-1.0.7" />
+		<property name="junit.jar" location="C:\eclipse\plugins\org.junit_4.10.0.v4_10_0_v20120426-0900\junit.jar" />
+
+		<path id="project.classpath">
+			<pathelement location="${build.dir}" />
+			<pathelement location="${junit.jar}" />
+			<fileset dir="${basedir}/lib">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${proto.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+
+		<path id="run.classpath">
+			<pathelement location="${build.dir}" />
+			<pathelement location="${junit.jar}" />
+			<fileset dir="${basedir}/lib">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${proto.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+	</target>
+
+	<target name="full" depends="clean,proto,build,build.test" />
+
+	<target name="clean" depends="init">
+		<delete dir="${build.dir}" />
+		<delete dir="${generated.dir}" />
+	</target>
+
+	<target name="proto" depends="init">
+		<delete dir="${generated.dir}" />
+		<mkdir dir="${generated.dir}" />
+		<java classname="com.dyuproject.protostuff.compiler.CompilerMain" fork="true" dir="${generated.dir}">
+			<arg value="${basedir}/resources/protostuff.properties" />
+			<classpath>
+				<pathelement location="${proto.dir}/protostuff-compiler-1.0.7-jarjar.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="build" depends="init">
+		<mkdir dir="${build.dir}" />
+
+		<!-- generated protobuf classes -->
+		<javac destdir="${build.dir}" debug="true" deprecation="false" includeantruntime="false" optimize="false" failonerror="true">
+			<src path="${generated.dir}" />
+			<classpath refid="project.classpath" />
+		</javac>
+
+		<javac destdir="${build.dir}" debug="true" deprecation="false" optimize="false" failonerror="true">
+			<src path="${src.dir}" />
+			<classpath refid="project.classpath" />
+		</javac>
+
+	</target>
+
+	<target name="package" depends="clean,proto,build">
+		<delete dir="${pkg.dir}" />
+		<mkdir dir="${pkg.dir}/conf" />
+		<mkdir dir="${pkg.dir}/lib" />
+
+		<jar compress='false' filesonly='true' destfile='${pkg.dir}/lib/ppl.jar'>
+			<fileset dir='${build.dir}'>
+				<include name='**/*' />
+				<exclude name='**/*Test.class' />
+			</fileset>
+		</jar>
+
+		<!-- runtime setup -->
+		<copy todir="${pkg.dir}/conf" file="${basedir}/resources/setup.properties" />
+	</target>
+
+	<target name="build.test" depends="build">
+		<javac destdir="${build.dir}" debug="true" deprecation="false" optimize="false" failonerror="true">
+			<src path="${test.dir}" />
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<target name="test.query" depends="build.test">
+		<junit printsummary='yes' fork='yes'>
+			<classpath refid="project.classpath" />
+
+			<formatter type="plain" />
+
+			<test name="gash.proto.app.PeopleQueryTest" haltonfailure="no" outfile="result">
+				<formatter type="xml" />
+			</test>
+
+		</junit>
+	</target>
+
+	<target name="test.load" depends="build.test">
+		<junit printsummary='yes' fork='yes'>
+			<classpath refid="run.classpath" />
+
+			<formatter type="plain" />
+
+			<test name="gash.proto.app.LoadTest" haltonfailure="no" outfile="result">
+				<formatter type="xml" />
+			</test>
+
+		</junit>
+	</target>
+
+	<target name="test.indexing" depends="build.test">
+		<junit printsummary='yes' fork='yes'>
+			<classpath refid="run.classpath" />
+
+			<formatter type="plain" />
+
+			<test name="gash.proto.engine.indexing.IndexMemoryTest" haltonfailure="no" outfile="result">
+				<formatter type="xml" />
+			</test>
+
+		</junit>
+	</target>
+
+	<target name="demo" depends="build">
+		<java fork="yes" classname="proto.SimpleApp">
+			<classpath refid="run.classpath" />
+		</java>
+	</target>
+
+
+</project>

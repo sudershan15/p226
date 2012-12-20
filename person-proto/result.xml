@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="mochi.local" name="gash.proto.app.LoadTest" tests="1" time="1.001" timestamp="2012-03-03T00:42:48">
+  <properties>
+    <property name="java.vendor" value="Apple Inc." />
+    <property name="ant.file.Protobuf persistence" value="/Users/gash/workspace/databases/person-proto/build.xml" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="jikes.class.path" value=":/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/../Classes/alt-rt.jar:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/../Classes/alt-string.jar:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/../Classes/charsets.jar:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/../Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/../Classes/dt.jar:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/../Classes/jce.jar:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/../Classes/jconsole.jar:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/../Classes/jsse.jar:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/../Classes/management-agent.jar:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/../Classes/ui.jar" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="sun.boot.class.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsfd.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Frameworks/JavaRuntimeSupport.framework/Resources/Java/JavaRuntimeSupport.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/ui.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/laf.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/sunrsasign.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsse.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="ant.home" value="/usr/local/apache-ant-1.8.2" />
+    <property name="java.runtime.version" value="1.6.0_29-b11-402-11D50b" />
+    <property name="user.name" value="gash" />
+    <property name="ant.file.type.Protobuf persistence" value="file" />
+    <property name="awt.nativeDoubleBuffering" value="true" />
+    <property name="build.dir" value="/Users/gash/workspace/databases/person-proto/classes" />
+    <property name="user.language" value="en" />
+    <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries" />
+    <property name="ant.project.default-target" value="build" />
+    <property name="ant.project.name" value="Protobuf persistence" />
+    <property name="java.version" value="1.6.0_29" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="MacRoman" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="50.0" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file" value="/Users/gash/workspace/databases/person-proto/build.xml" />
+    <property name="os.version" value="10.7.3" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="20.4-b02-402" />
+    <property name="ant.library.dir" value="/usr/local/apache-ant-1.8.2/lib" />
+    <property name="java.awt.printerjob" value="apple.awt.CPrinterJob" />
+    <property name="proto.dir" value="/usr/local/protostuff" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="apple.awt.CToolkit" />
+    <property name="user.home" value="/Users/gash" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="test.dir" value="/Users/gash/workspace/databases/person-proto/test" />
+    <property name="java.library.path" value=".:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="name" value="protobuf" />
+    <property name="java.vendor.url" value="http://www.apple.com/" />
+    <property name="java.vm.vendor" value="Apple Inc." />
+    <property name="gopherProxySet" value="false" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner gash.proto.app.LoadTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter,/Users/gash/workspace/databases/person-proto/result.txt formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/gash/workspace/databases/person-proto/result.xml crashfile=/Users/gash/workspace/databases/person-proto/junitvmwatcher6070012286868788580.properties propsfile=/Users/gash/workspace/databases/person-proto/junit7996888651288627021.properties" />
+    <property name="java.class.path" value="/Users/gash/workspace/databases/person-proto/classes:/Users/gash/Developer/junit-4.8.2.jar:/Users/gash/workspace/databases/person-proto/lib/slf4j-api-1.6.1.jar:/Users/gash/workspace/databases/person-proto/lib/slf4j-simple-1.6.1.jar:/usr/local/protostuff/lib/archetype/basic-gwt-webapp-1.0.0.jar:/usr/local/protostuff/lib/archetype/basic-webapp-1.0.0.jar:/usr/local/protostuff/lib/archetype/simple-gwt-webapp-1.0.0.jar:/usr/local/protostuff/lib/archetype/simple-webapp-1.0.0.jar:/usr/local/protostuff/lib/protostuff-api-1.0.0.jar:/usr/local/protostuff/lib/protostuff-benchmark-1.0.0.jar:/usr/local/protostuff/lib/protostuff-codegen-1.0.0.jar:/usr/local/protostuff/lib/protostuff-collectionschema-1.0.0.jar:/usr/local/protostuff/lib/protostuff-compiler-1.0.0.jar:/usr/local/protostuff/lib/protostuff-core-1.0.0.jar:/usr/local/protostuff/lib/protostuff-json-1.0.0.jar:/usr/local/protostuff/lib/protostuff-kvp-1.0.0.jar:/usr/local/protostuff/lib/protostuff-maven-plugin-1.0.0.jar:/usr/local/protostuff/lib/protostuff-model-1.0.0.jar:/usr/local/protostuff/lib/protostuff-model-json-1.0.0.jar:/usr/local/protostuff/lib/protostuff-parser-1.0.0.jar:/usr/local/protostuff/lib/protostuff-runtime-1.0.0.jar:/usr/local/protostuff/lib/protostuff-xml-1.0.0.jar:/usr/local/protostuff/lib/protostuff-yaml-1.0.0.jar:/usr/local/protostuff/protostuff-compiler-1.0.0-jarjar.jar:/usr/local/apache-ant-1.8.2/lib/ant-launcher.jar:/usr/local/apache-ant-1.8.2/lib/ant.jar:/usr/local/apache-ant-1.8.2/lib/ant-junit.jar:/usr/local/apache-ant-1.8.2/lib/ant-junit4.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.8.2 compiled on December 20 2010" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.type" value="file" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="junit.jar" value="/Users/gash/Developer/junit-4.8.2.jar" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="java.io.tmpdir" value="/var/folders/dv/nm31w32s0yj6_b9vh9xvmxb40000gn/T/" />
+    <property name="pkg.dir" value="/Users/gash/workspace/databases/person-proto/dist" />
+    <property name="java.vendor.url.bug" value="http://bugreport.apple.com/" />
+    <property name="mrj.build" value="11D50b" />
+    <property name="os.arch" value="x86_64" />
+    <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment" />
+    <property name="java.ext.dirs" value="/Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext" />
+    <property name="mrj.version" value="1070.1.6.0_29-402" />
+    <property name="user.dir" value="/Users/gash/workspace/databases/person-proto" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="basedir" value="/Users/gash/workspace/databases/person-proto" />
+    <property name="ant.java.version" value="1.6" />
+    <property name="config.dir" value="/Users/gash/workspace/databases/person-proto/resources" />
+    <property name="ant.core.lib" value="/usr/local/apache-ant-1.8.2/lib/ant.jar" />
+    <property name="file.encoding" value="MacRoman" />
+    <property name="java.specification.version" value="1.6" />
+    <property name="generated.dir" value="/Users/gash/workspace/databases/person-proto/generated" />
+    <property name="src.dir" value="/Users/gash/workspace/databases/person-proto/src" />
+    <property name="ant.project.invoked-targets" value="test.load" />
+  </properties>
+  <testcase classname="gash.proto.app.LoadTest" name="testLoadUsers" time="0.796" />
+  <system-out><![CDATA[---> create took 428 msec, 0.428 msec/entry
+---> load took 149 msec, 0.149 msec/entry
+
+---> query: Charlie
+
+- Charlie, ID = 32b218d2-fecc-4e19-8aa5-a992461b1279
+]]></system-out>
+  <system-err><![CDATA[1 [main] INFO gash.proto.engine.ProtoEngine - opening collection: test
+1 [main] INFO gash.proto.engine.ProtoEngine - collection data: /opt/226/ppl/test/data
+1 [main] INFO gash.proto.engine.ProtoEngine - collection index: /opt/226/ppl/test/index
+]]></system-err>
+</testsuite>
