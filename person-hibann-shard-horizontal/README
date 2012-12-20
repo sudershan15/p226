@@ -1,0 +1,17 @@
+To use:
+
+1. Create user and database in hibernate: 
+
+	a. Using psql (substitute gash for your postgres user)
+	
+	./psql -U postgres
+	
+	b. commands: 
+	
+	create user gash with login, createdb, inherit, password 'gash';
+	create database pplhbm with owner gash;
+	grant all privileges on database pplhbm to gash;
+
+2. Run initialization ant target
+
+3. Run test cases

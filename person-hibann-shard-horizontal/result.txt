@@ -1,0 +1,36 @@
+Testsuite: gash.hibernate.app.PeopleQueryTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1.42 sec
+------------- Standard Output ---------------
+
+-----------------------------------------------------
+00:13:00,686  INFO RegionFactoryCacheProviderBridge:61 - Cache provider: org.hibernate.cache.NoCacheProvider
+00:13:00,924  INFO SchemaUpdate:155 - Running hbm2ddl schema update
+00:13:00,924  INFO SchemaUpdate:167 - fetching database metadata
+00:13:00,946  INFO SchemaUpdate:179 - updating schema
+00:13:01,012  INFO TableMetadata:65 - table found: public.contact
+00:13:01,013  INFO TableMetadata:66 - columns: [person_id, contact_id, value, type, note, version]
+00:13:01,013  INFO TableMetadata:68 - foreign keys: [fk38b7242017cc0e3]
+00:13:01,013  INFO TableMetadata:69 - indexes: [contact_pkey]
+00:13:01,062  INFO TableMetadata:65 - table found: public.person
+00:13:01,063  INFO TableMetadata:66 - columns: [person_id, nickname, created, role, lastname, firstname, version]
+00:13:01,063  INFO TableMetadata:68 - foreign keys: []
+00:13:01,063  INFO TableMetadata:69 - indexes: [person_pkey]
+00:13:01,064  INFO SchemaUpdate:217 - schema update complete
+00:13:01,088  INFO RegionFactoryCacheProviderBridge:61 - Cache provider: org.hibernate.cache.NoCacheProvider
+00:13:01,099  INFO SchemaUpdate:155 - Running hbm2ddl schema update
+00:13:01,099  INFO SchemaUpdate:167 - fetching database metadata
+00:13:01,109  INFO SchemaUpdate:179 - updating schema
+00:13:01,170  INFO TableMetadata:65 - table found: public.contact
+00:13:01,170  INFO TableMetadata:66 - columns: [person_id, contact_id, value, type, note, version]
+00:13:01,171  INFO TableMetadata:68 - foreign keys: [fk38b7242017cc0e3]
+00:13:01,171  INFO TableMetadata:69 - indexes: [contact_pkey]
+00:13:01,214  INFO TableMetadata:65 - table found: public.person
+00:13:01,215  INFO TableMetadata:66 - columns: [person_id, nickname, created, role, lastname, firstname, version]
+00:13:01,215  INFO TableMetadata:68 - foreign keys: []
+00:13:01,215  INFO TableMetadata:69 - indexes: [person_pkey]
+00:13:01,216  INFO SchemaUpdate:217 - schema update complete
+
+find() found: (id=1) Cane Livia, Cane1, Friend
+------------- ---------------- ---------------
+
+Testcase: testFindById took 1.364 sec
