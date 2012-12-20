@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<project name="Hibernate using native api (hbm)" basedir="." default="build">
+
+	<target name="init">
+		<property name="name" value="pim" />
+		<property name="src.dir" location="${basedir}/src" />
+		<property name="test.dir" location="${basedir}/test" />
+
+
+		<!-- shards -->
+		<property name="build1.dir" location="${basedir}/classes" />
+		<property name="build2.dir" location="${basedir}/classes2" />
+		<property name="config1.dir" location="${basedir}/resources1" />
+		<property name="config2.dir" location="${basedir}/resources2" />
+
+		<property name="hibernate.dir" location="/Users/gash/Developer/hibernate/current" />
+		<property name="junit.jar" location="/Users/gash/Developer/junit-4.8.2.jar" />
+
+		<path id="project.classpath">
+			<pathelement location="${build1.dir}" />
+			<pathelement location="${junit.jar}" />
+			<fileset dir="${basedir}/lib">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${hibernate.dir}">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${hibernate.dir}/lib/required">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${hibernate.dir}/lib/jpa">
+				<include name="*.jar" />
+			</fileset>
+		</path>
+	</target>
+
+	<target name="clean" depends="init">
+		<delete dir="${build1.dir}" />
+		<delete dir="${build2.dir}" />
+	</target>
+
+	<target name="build" depends="clean">
+
+		<!-- shard 1 -->
+		<mkdir dir="${build1.dir}" />
+		<copy file="${config1.dir}/hibernate.cfg.xml" todir="${build1.dir}" />
+		<copy file="${config1.dir}/log4j.properties" todir="${build1.dir}" />
+		<javac destdir="${build1.dir}" debug="true" deprecation="false" optimize="false" failonerror="true">
+			<src path="${src.dir}" />
+			<classpath refid="project.classpath" />
+		</javac>
+		<copy todir="${build1.dir}">
+			<fileset dir="${src.dir}">
+				<include name="**/*.hbm.xml" />
+			</fileset>
+		</copy>
+
+		<!-- shard 2 -->
+		<mkdir dir="${build2.dir}" />
+		<copy file="${config2.dir}/hibernate.cfg.xml" todir="${build2.dir}" />
+		<copy file="${config2.dir}/log4j.properties" todir="${build2.dir}" />
+		<javac destdir="${build2.dir}" debug="true" deprecation="false" optimize="false" failonerror="true">
+			<src path="${src.dir}" />
+			<classpath refid="project.classpath" />
+		</javac>
+		<copy todir="${build2.dir}">
+			<fileset dir="${src.dir}">
+				<include name="**/*.hbm.xml" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build.test" depends="build">
+		<javac destdir="${build1.dir}" debug="true" deprecation="false" optimize="false" failonerror="true">
+			<src path="${test.dir}" />
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<target name="test.query" depends="build.test">
+		<junit printsummary='yes' fork='yes'>
+			<classpath refid="project.classpath" />
+
+			<formatter type="plain" />
+
+			<test name="gash.hibernate.app.PeopleQueryTest" haltonfailure="no" outfile="result">
+				<formatter type="xml" />
+			</test>
+
+		</junit>
+	</target>
+
+	<target name="demo" depends="build">
+		<java fork="yes" classname="hibernate.SimpleApp">
+			<classpath>
+				<pathelement location="${build1.dir}/hibernate.cfg.xml" />
+				<pathelement location="${build1.dir}" />
+				<fileset dir="${basedir}/lib">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${hibernate.dir}">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${hibernate.dir}/lib/required">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${hibernate.dir}/lib/jpa">
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="load" depends="build">
+		<java fork="yes" classname="gash.hibernate.app.Populate">
+			<classpath>
+				<pathelement location="${build.dir}/hibernate.cfg.xml" />
+				<pathelement location="${build.dir}" />
+				<fileset dir="${basedir}/lib">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${hibernate.dir}">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${hibernate.dir}/lib/required">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${hibernate.dir}/lib/jpa">
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+
+</project>
